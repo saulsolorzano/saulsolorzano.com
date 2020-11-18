@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+body {
+	background-color: #c3dafe;
+}
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #f25f4c;
+	}
+}
