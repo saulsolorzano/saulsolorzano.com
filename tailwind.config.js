@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
@@ -17,7 +19,7 @@ module.exports = {
       },
       colors: {
         'dark-copy': '#fffffe',
-        'highlight': '#f25f4c',
+        'highlight': '#ff8e3c',
         'light-highlight': '#fffffe'
       }
     },

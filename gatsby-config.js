@@ -15,6 +15,14 @@ module.exports = {
 					id: process.env.TYPEKIT_ID,
 				},
 			}
-		}
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: `blog`,
+				path: `${__dirname}/src/blog`
+			}
+		},
+		`gatsby-transformer-remark`,
 	],
 }
