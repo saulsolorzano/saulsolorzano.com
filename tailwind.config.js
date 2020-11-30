@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors');
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   future: {
@@ -8,22 +8,43 @@ module.exports = {
   purge: [],
   theme: {
     fontFamily: {
-			'primary': ['halyard-display', 'sans-serif']
+      primary: ["halyard-display", "sans-serif"],
+      copy: ["ff-tisa-sans-web-pro", "sans-serif"],
+    },
+    colors: {
+      gray: colors.blueGray,
+      yellow: colors.amber,
+      blue: colors.lightBlue,
     },
     borderWidth: {
-      '20': '20px'
+      20: "20px",
     },
     extend: {
       screens: {
-        'dark': {'raw': '(prefers-color-scheme: dark)'},
+        dark: { raw: "(prefers-color-scheme: dark)" },
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              color: "#d9376e",
+              "&:hover": {
+                color: "#ff8e3c",
+              },
+            },
+            pre: {
+              "box-shadow": "4px 4px 0 #d9376e",
+            },
+          },
+        },
       },
       colors: {
-        'dark-copy': '#fffffe',
-        'highlight': '#ff8e3c',
-        'light-highlight': '#fffffe'
-      }
+        "dark-copy": "#fffffe",
+        highlight: "#ff8e3c",
+        "light-highlight": "#fffffe",
+      },
     },
   },
   variants: {},
-  plugins: [],
-}
+  plugins: [require("@tailwindcss/typography")],
+};

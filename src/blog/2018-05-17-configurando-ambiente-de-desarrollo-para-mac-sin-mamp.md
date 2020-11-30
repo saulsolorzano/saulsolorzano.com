@@ -1,26 +1,13 @@
 ---
-author: Saúl Solórzano
-categories:
-- Utilidades
 date: 2018-05-17
-descripcion:
-- 
-tags:
-- bash
-- configuración
-- MAMP
-- MySQL
-- PHP
-- utilidades
 title: Configurando ambiente de desarrollo para Mac sin MAMP
-url: /configurando-ambiente-de-desarrollo-para-mac-sin-mamp/
-type: "post"
+slug: /configurando-ambiente-de-desarrollo-para-mac-sin-mamp/
 ---
 
 ## Configuración del ambiente de desarrollo web para mac sin usar MAMP.
 Guía sencilla de cómo instalar un ambiente de desarrollo en MAC sin tener que usar algún servicio externo.
 
-<div class="updated">
+<div class="bg-blue-300 p-2 text-white">
     Este post fue publicado originalmente el <strong>21 de Septiembre de 2014</strong>, hace ya casi 4 años, mucho ha cambiado desde ese momento, así que ha sido actualizado para reflejar esos cambios. Trataré de actualizarlo regularmente. Última actualización <strong>14 de Mayo de 2018</strong>
 </div>
 

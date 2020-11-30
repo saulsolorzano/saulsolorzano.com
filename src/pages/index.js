@@ -9,21 +9,34 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <div className="text-gray-800 mt-10">
-        <div className="p-2">
+        <div className="p-2 divide-gray-700 divide-y-4">
           {blog.posts.map(post => (
-            <article key={post.id} className="mb-4">
-              <span className="text-gray-500 text-sm block m-0 leading-tight">
+            <article
+              key={post.id}
+              className="py-6 xl:grid xl:grid-cols-8 xl:items-baseline"
+            >
+              <span className="text-gray-500 text-base block m-0 col-span-2 leading-10">
                 Escrito el {post.frontmatter.date}
               </span>
-              <h2 className="text-xl">
+              <div className="col-span-6 space-y-3">
+                <h2 className="text-2xl leading-normal">
+                  <Link
+                    to={post.fields.slug}
+                    className="text-gray-800 hover:text-yellow-700 block"
+                  >
+                    {post.frontmatter.title}
+                  </Link>
+                </h2>
+                <div className="prose text-base font-copy text-gray-600">
+                  <p>{[post.excerpt]}</p>
+                </div>
                 <Link
                   to={post.fields.slug}
-                  className="text-gray-800 hover:text-yellow-700 block"
+                  className="text-yellow-700 text-xl block"
                 >
-                  {post.frontmatter.title}
+                  Leer todo →
                 </Link>
-              </h2>
-              <p>{[post.excerpt]}</p>
+              </div>
             </article>
           ))}
         </div>
