@@ -3,6 +3,7 @@ author: saul
 categories:
 - Grunt
 date: "2014-11-23T00:00:00Z"
+published: true
 descripcion: Una de las mejores funciones de Grunt es la habilidad de automatizar la creación
   de proyectos. En este tutorial explico como usar esta poderosa herramienta.
 tags:
@@ -192,7 +193,7 @@ Una vez que hayamos configurado todo simplemente debemos ir a la carpeta que que
 ```bash
 grunt-init tema
 ```
-![Grunt-Init](/uploads/grunt-init.gif)
+![Grunt-Init](../img/grunt-init.gif)
 
 Como vemos, incluso a las preguntas a las que no les tenemos una respuesta por defecto, grunt mira el ambiente donde se encuentra y trata de dar respuestas, la carpeta donde usé el comando se llama `templates-grunt` entonces nos da ambas respuestas de `name` y `title` basado en esta información.
 

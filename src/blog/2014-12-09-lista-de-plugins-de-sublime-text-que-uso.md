@@ -3,6 +3,7 @@ author: saul
 categories:
 - General
 date: "2014-12-09T00:00:00Z"
+published: true
 descripcion:
 - Sublime text es uno de los mejores editores de texto con los que se puede programar
   y razón por la cual es tan potente es su gran cantidad de plugins.
@@ -58,15 +59,15 @@ Una colección de snippets muy util para trabajar con `CSS`.
 
 Emmet es uno de los plugins mas útiles que existe, no es exclusivo de Sublime, se puede usar en una gran cantidad de programas. Emmet nos permite mejorar nuestro flujo de trabajo en CSS y HTML de gran manera. En HTML nos permite usar abreviaciónes para expandir código. Es decir, podemos escribir
 ```html
-header.header&gt;.logo&gt;a[src="img/logo.svg"]
+header.header>.logo>a[src="img/logo.svg"]
 ```
 
 y emmet generará el HTML correspondiente
 
 ```html
-&lt;header class="header"&gt;
-    &lt;div class="logo"&gt;&lt;a href="" src="img/logo.svg"&gt;&lt;/a&gt;&lt;/div&gt;
-&lt;/header&gt;
+<header class="header">
+    <div class="logo"><a href="" src="img/logo.svg"></a></div>
+</header>
 ```
 
 ### 7. [GitGutter][8]

@@ -3,6 +3,7 @@ author: saul
 categories:
 - productividad
 date: "2016-01-03T00:00:00Z"
+published: true
 descripcion:
 - Usando los archivos dot para aumentar la productividad
 title: Usar archivos dot para aumentar productividad

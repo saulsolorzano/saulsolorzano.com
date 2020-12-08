@@ -12,12 +12,10 @@ module.exports = {
       copy: ["ff-tisa-sans-web-pro", "sans-serif"],
     },
     colors: {
+      white: colors.white,
       gray: colors.blueGray,
       yellow: colors.amber,
       blue: colors.lightBlue,
-    },
-    borderWidth: {
-      20: "20px",
     },
     extend: {
       screens: {

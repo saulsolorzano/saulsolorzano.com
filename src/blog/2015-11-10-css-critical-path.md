@@ -4,6 +4,7 @@ categories:
 - css
 - desempeño
 date: "2015-11-10T00:00:00Z"
+published: true
 descripcion:
 - Como utilizar el "Critical PATH" para mejorar el desempeño de tu sitio web
 meta_description: Como utilizar el "Critical PATH" para mejorar el desempeño de tu

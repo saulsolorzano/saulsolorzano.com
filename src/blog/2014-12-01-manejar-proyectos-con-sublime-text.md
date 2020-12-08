@@ -3,6 +3,7 @@ author: saul
 categories:
 - Utilidades
 date: "2014-12-01T00:00:00Z"
+published: true
 descripcion:
 - En este tutorial vemos como usar manejar proyectos usando Sublime, una función poco
   utilizada pero increíblemente útil.
@@ -55,7 +56,7 @@ Este archivo debe tener la siguiente estructura
 
 Supongamos que nuestro sitio de librería es una página de WordPress y la raíz de nuestro proyecto es la de WordPress, cuando abrimos el proyecto en sublime vemos la siguiente estructura:
 
-<img src="{{site.baseurl}}/uploads/ColorSnapper_and__Users_saulsolorzano_Code_personal_saulsolorzano.png" title="Usando Sublime para manejar proyectos" alt="Usando Sublime para manejar proyectos" class="aligncenter wp-image-1416" />
+<img src="{{site.baseurl}}../img/ColorSnapper_and__Users_saulsolorzano_Code_personal_saulsolorzano.png" title="Usando Sublime para manejar proyectos" alt="Usando Sublime para manejar proyectos" class="aligncenter wp-image-1416" />
 
 Pero lo que realmente nos interesa es trabajar dentro del tema, una posibilidad sería salvar el proyecto directamente en el tema pero si queremos también trabajar en algún plugin tendríamos que tener dos proyectos de sublime para el mismo sitio. Si queremos ver sólo nuestro tema nos vamos a la opción de `path` y copiamos la ruta relativa al proyecto, en nuestro caso sería
 
@@ -74,7 +75,7 @@ Pero lo que realmente nos interesa es trabajar dentro del tema, una posibilidad 
 
 Una vez que copiamos esto y salvamos vamos a ver que sublime &#8220;oculta&#8221; todas las carpetas que no sean directamente nuestro tema. Pero aquí no acaba la magia de los proyectos aún, supongamos que una vez dentro de nuestro tema de WordPress, en el que estamos trabajando, tenemos la siguiente estructura de archivos:
 
-<img src="{{site.baseurl}}/uploads/Users_saulsolorzano_Desktop_libreria.png" title="Proyectos de Grunt para trabajar más eficientemente" alt="Proyectos de Grunt para trabajar más eficientemente" class="aligncenter wp-image-1417" />
+<img src="{{site.baseurl}}../img/Users_saulsolorzano_Desktop_libreria.png" title="Proyectos de Grunt para trabajar más eficientemente" alt="Proyectos de Grunt para trabajar más eficientemente" class="aligncenter wp-image-1417" />
 
 De aquí no nos interesa ver la carpeta `bower_components`, `node_modules` y `css`, esta última porque si estamos trabajando en `SASS` no nos interesa por los momentos ver el `css`. Así como también `.sass-cache` que no vemos aquí porque es una carpeta oculta. Estas carpetas son increíblemente molestas si estamos usando la opción de Sublime para abrir archivos que es `Command+P` en OS X o Ctrl+P en Windows. Si no ocultamos estas carpetas y voy a buscar por ejemplo un archivo `JS` aparte de los que están en mi carpeta `js/` voy a ver los cientos que deben de haber entre las carpetas `bower_components` y `node_modules`. Podemos usar la opción `folder_exclude_patterns` como un array para colocar todos los nombres ahí, nuestro archivo quedaría así.
 ```javascript

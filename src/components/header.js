@@ -4,7 +4,7 @@ import React from "react";
 
 const Header = ({ siteTitle }) => (
   <header className="px-2 md:mx-4 md:px-10 py-2 flex items-center justify-between bg-white">
-    <h1 className="text-3xl font-semibold text-gray-900 leading-tight">
+    <h1 className="text-3xl font-semibold text-gray-900 leading-tight hover:text-yellow-700">
       <Link to="/">{siteTitle}</Link>
       <small className="block text-sm font-light text-gray-500">
         Full-Stack Developer

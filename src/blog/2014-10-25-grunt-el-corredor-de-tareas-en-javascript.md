@@ -4,6 +4,7 @@ categories:
 - Grunt
 date: "2014-10-25T00:00:00Z"
 descripcion: null
+published: true
 format: image
 image: grunt-1280x588-792x363.jpg
 tags:
@@ -70,7 +71,7 @@ npm install
 
 Fíjate que aquí no usamos la bandera `-g` que es **global** porque grunt funciona por cada proyecto, las dependencias que instalamos las instalamos por proyecto.
 
-![Instalando dependencias de Grunt](/uploads/npm.gif)
+![Instalando dependencias de Grunt](../img/npm.gif)
 
 
 Una vez que hayamos corrido el comando vamos a ver que se creó una carpeta llamada **node_modules** donde están las dependencias, si abrimos la carpeta vamos a que hay una carpeta llamada **grunt** porque es la dependencia que instalamos.
@@ -124,11 +125,11 @@ Por los momentos vemos que agarra los datos de `package.json` y así sabe que ta
 
 Ahora vamos a modificar la tarea correspondiente a **svgstore**. Si nunca antes hemos usado un plug-in y no tenemos idea de como es la configuración básica podemos ir a la página del plug-in que siempre están en [github][4] y habrá un ejemplo explicando los pasos a seguir.
 
-![SVGstore en Github](/uploads/github.gif)
+![SVGstore en Github](../img/github.gif)
 
 Lo ideal es tener una carpeta para los SVGs, y ahí colocamos todos los que necesitemos colocar en el sprite
 
-![Grunt: Entendiendo como funciona](/uploads/Users_saulsolorzano_Desktop_proyecto.png)
+![Grunt: Entendiendo como funciona](../img/Users_saulsolorzano_Desktop_proyecto.png)
 
 Ahora vamos a crear como tal la función. Siguiendo el ejemplo que vimos en github vamos a adaptarlo un poco más a nuestras necesidades
 
@@ -189,11 +190,11 @@ Ahora podemos correr
 grunt
 ```
 
-![Corriendo Grunt](/uploads/grunt.gif)
+![Corriendo Grunt](../img/grunt.gif)
 
 Y como ya habíamos definido que la tarea por defecto era svgstore no necesitamos especificarlo de nuevo en la terminal. Una vez que el comando haya corrido sin error vamos a ver el archivo creado en la raíz del proyecto.
 
-![Creando sprites de SVG con Grunt](/uploads/Users_saulsolorzano_Desktop_proyecto2.png)
+![Creando sprites de SVG con Grunt](../img/Users_saulsolorzano_Desktop_proyecto2.png)
 
 ## Siguientes pasos
 

@@ -1,7 +1,7 @@
 ---
-author: Saúl Solórzano
 title: Usando la API de Google Drive para descargar imágenes y luego procesarlas con PHP
 date: 2018-04-19
+published: true
 slug: usando-la-api-de-google-drive/
 meta_description: Usamos la API de Google Drive para descargar las imágenes de un formulario de Google Forms y procesarlas. Todo usando PHP
 share_image: googledrive.jpg
@@ -27,7 +27,7 @@ Todo muy divertido hasta ahora, pero el formulario daba la opción para que las 
 #### Soluciones no inteligentes/flojas
 Obviamente primero traté de hacer lo más fácil, hacer un curl al link y descargar la imagen, el problema es que el link que Google coloca no es directo a la imagen, Google no da esos links, sino da un link con toda la interfaz de ellos y ahí es que te da la opción de descargarlo.
 
-![Google porque???](/uploads/sepi.png)
+![Google porque???](../img/sepi.png)
 
 Después ser testarudo por 20 min, entendí que no se podía hacer así, entonces busqué la API de Google, específicamente, la [librería de PHP](https://github.com/google/google-api-php-client) para poder usar la API de Google, sí, estamos usando también `PHP` para esta primera versión del directorio.
 
@@ -71,7 +71,7 @@ Nuestro `$response` será un objeto gigante, con dos métodos (¿Capaz más? Nun
 
 > Protip: Cuando estén trabajando con algo que no conocen, `var_dump` es su mejor amigo, yo le hago `var_dump` a todo para ver que me regresa y si me sirve para trabajar, recordemos que
 > 
-> ![POWER](/uploads/power.jpg)
+> ![POWER](../img/power.jpg)
 
 Todo bien, pero ¿cómo salvar eso a un archivo?, después de buscar mucho e intentar diferentes métodos, encontré [uno](https://stackoverflow.com/questions/40028169/google-drive-api-v3-downloading-files-in-php) que me funcionó.
 

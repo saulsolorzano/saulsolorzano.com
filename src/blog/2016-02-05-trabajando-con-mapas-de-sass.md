@@ -1,7 +1,5 @@
 ---
-author: saul
-categories:
-- sass
+published: true
 date: "2016-02-05T00:00:00Z"
 descripcion:
 - Usando los mapas de sass para facilitar trabajo

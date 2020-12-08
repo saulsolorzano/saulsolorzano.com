@@ -5,6 +5,7 @@ categories:
 date: "2015-03-18T00:00:00Z"
 descripcion:
 - Paul Irish hablando de desempeño web
+published: true
 format: link
 link_externo: https://www.youtube.com/watch?v=R8W_6xWphtw
 title: Paul Irish hablando de Desempeño web

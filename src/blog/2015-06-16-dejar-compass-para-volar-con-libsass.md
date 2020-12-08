@@ -3,6 +3,7 @@ author: saul
 categories:
 - Git
 date: "2015-06-16T00:00:00Z"
+published: true
 descripcion:
 - WordPress es el CMS más popular del mundo y las razones son muchas: es infinitamente
     personalizable, la comunidad es muy activa y la cantidad de plugins es impresionante.

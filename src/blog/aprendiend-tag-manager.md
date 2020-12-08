@@ -32,15 +32,15 @@ Tiene muchas más funcionalidades, por ejemplo, con tag manager puedes insertar 
 ## Primeros pasos con Tag Manager
 Lo primero que debemos hacer es ir a la página de [Tag Manager](https://tagmanager.google.com/) y si ya estamos logeados con nuestra cuenta de google vamos a ver un tablero vacío, le damos al botón de crear nueva cuenta que está arriba a la derecha. Una vez damos click nos preguntará información básica, debemos colocar el nombre de la cuenta y el país. Y después nos preguntará el nombre del contenedor ya que podemos tener muchos contenedores en cada cuenta y por último donde se usa el contenedor.
 
-![Creando cuenta tag manager](/uploads/tag-manager-1.png)
+![Creando cuenta tag manager](../img/tag-manager-1.png)
 
 Una vez llenamos todo, nos mostrará el código que debemos colocar en nuestro sitio con instrucciones de donde debe ir.
 
-![Tag](/uploads/tag-manager-2.png)
+![Tag](../img/tag-manager-2.png)
 
 Al principio cuesta un poco entender como funciona Tag Manager, pero después se vuelve bastante lógico. Vamos por parte, una vez que cerramos la ventana de nuestro código (y hemos insertado el código donde nos indican) veremos esto:
 
-![Dashboard](/uploads/tag-manager-3.png)
+![Dashboard](../img/tag-manager-3.png)
 
 En la parte superior vemos la información del contenedor que estamos y la opción de movernos a diferentes contenedores, cuentas. A la derecha vemos el ID del contenedor, después nos indica cuantos cambios hemos hecho, el botón de preview y por último el botón de submit.
 
@@ -55,11 +55,11 @@ Aquí es donde estarán todos los tag, podemos crear cuantos tags queramos para 
 
 Aquí vamos a configurar todas las acciones que pueden disparar alguno de nuestros tags, cuando entramos vemos la misma interfaz que vemos en Tags cuando está vacía, si creamos uno nuevo nos da la opción de agregar un nombre y la configuración del mismo.
 
-![Triggers](/uploads/tag-manager-16.png) 
+![Triggers](../img/tag-manager-16.png) 
 
 Hay muchos tipos de triggers, desde el `page view` que es muy útil porque podemos configurarlo para que se dispare en páginas que cumplan ciertos criterios.
 
-![Page view trigger](/uploads/tag-manager-17.png) 
+![Page view trigger](../img/tag-manager-17.png) 
 
 También están los de clicks que se pueden configurar de manera muy similar al de `page views`
 
@@ -70,7 +70,7 @@ Los que programamos estamos familiarizados con el concepto de `variable`. Una va
 
 En Tag Manager hay dos tipos de variables: las que están preconfiguradas y las definidas por el usuario. De las preconfiguradas podemos ver que hay 5 ya activas.
 
-![Variables overview](/uploads/tag-manager-18.png) 
+![Variables overview](../img/tag-manager-18.png) 
 
 Estas las podemos ver cuando estamos configurando los triggers, nos dan información útil.
 
@@ -90,54 +90,54 @@ Obviamente no es obligatorio hacer uso de las carpetas, pero ayuda mucho a mante
 
 Obviamente la creación de tags es lo más importante (**tag** manager), puedes crear una cantidad ilimitada y puedes usar clones de un tag para distintos propósitos, podemos tener un tag para medir los formularios y otro tag para los lightbox. Vamos a crear el más básico de todos, el tag básico de Analytics.
 
-![Crear tag](/uploads/tag-manager-4.png)
+![Crear tag](../img/tag-manager-4.png)
 
 Le damos click a Nuevo y nos abre un panel donde debemos completar la información del tag.
 
-![Nuevo tag](/uploads/tag-manager-5.png)
+![Nuevo tag](../img/tag-manager-5.png)
 
 #### Nombre del tag
 El nombre del tag es muy importante, es bueno usar algún tipo de prefijo que nos ayude a ubicarnos después, capaz parece innecesario, pero incluso para un sitio relativamente chico podemos llegar a tener más de 10 tags, con el prefijo se ordenarán de manera más coherente. Nuestro tag se llamará `GA - Universal Tag`. El prefijo `GA` es porque es de Google Analytics.
 
 Le damos click a la primera caja para agregar una configuración del tag. Se nos va a desplegar otro panel (todo es panel aquí) donde vamos a ver la lista de todos los tags disponibles, el primero es el de Universal Analytics, abajo los de AdWords, Optimize, más abajo aún los personalizados y por último vemos todos los que son de aplicaciones de terceros que están integradas.
 
-![Universal Analytics](/uploads/tag-manager-5.png)
+![Universal Analytics](../img/tag-manager-5.png)
 
 Vamos a seleccionar el primero, Google Analytics - Universal Analytics
 
-![Seleccionar panel](/uploads/tag-manager-6.png)
+![Seleccionar panel](../img/tag-manager-6.png)
 
 Una vez seleccionado debemos llenar dos opciones, la primera es `Track Type`, si has usado Analytics anteriormente, sabes que este es el tipo de tracking por defecto y es el que nos da la información que estamos acostumbrados a leer en analytics, así que lo dejaremos así. La siguiente opción es la configuración del tag y fíjense que nos dice "Selecciona una variable de configuración...", en estos momentos no tenemos ninguna así que escogamos **New variable**.
 
-![Configurando Tag Analytics](/uploads/tag-manager-7.png)
+![Configurando Tag Analytics](../img/tag-manager-7.png)
 
 Se abrirá otro panel (obvio).
 
-![Nueva variable](/uploads/tag-manager-8.png)
+![Nueva variable](../img/tag-manager-8.png)
 
 Vamos a colocar los siguientes datos: Como nombre `GAS - GA Hits Standard` y en Tracking ID debemos colocar el de Google Analytics, el clásico `UA-XXXXXXXX-X`
 
-![Configuración variable](/uploads/tag-manager-9.png)
+![Configuración variable](../img/tag-manager-9.png)
 
 Salvamos y volveremos a la pantalla anterior
 
-![Universal Analytics con variable](/uploads/tag-manager-10.png)
+![Universal Analytics con variable](../img/tag-manager-10.png)
 
 Vamos debemos configurar el trigger, la acción que va a provocar que se "dispare" nuestro tag. Cuando le damos click a trigger vamos a ver que hay uno solo configurado.
 
-![Triggers](/uploads/tag-manager-11.png)
+![Triggers](../img/tag-manager-11.png)
 
 Pero ese es el que necesitamos, porque queremos que nuestro tag de analytics se cargue en todas las páginas, lo seleccionamos y nuestro tag debería quedar así:
 
-![Tag listo](/uploads/tag-manager-12.png)
+![Tag listo](../img/tag-manager-12.png)
 
 Ya tenemos todo listo así que le damos click arriba a la derecha a "Save" y vamos a ver nuestro tag.
 
-![Lista de tags](/uploads/tag-manager-13.png)
+![Lista de tags](../img/tag-manager-13.png)
 
 Si vamos a nuestro tablero donde click a "Overview" en el menú de la izquierda vamos a ver todos nuestros cambios
 
-![Dashboard](/uploads/tag-manager-14.png)
+![Dashboard](../img/tag-manager-14.png)
 
 ***
 
@@ -147,7 +147,7 @@ La parte más importante es verificar que nuestro tag ha sido **configurado corr
 
 Una vez que le damos click, la página se refrescará y veremos un mensaje nuevo, indicándonos que el contenedor se encuentra en modo preview, ahora lo que debemos hacer es navegar hasta nuestro sitio web y vamos a ver que se abre un panel nuevo en la parte de abajo de nuestro sitio y si hicimos todo bien vamos a ver el tag que creamos indicándonos que `GA - Universal Tag` se ha cargado.
 
-![Mirando éxito de tag manager](/uploads/tag-manager-15.png)
+![Mirando éxito de tag manager](../img/tag-manager-15.png)
 
 Si vamos a nuestra cuenta de Analytics vamos a ver que nos muestra información correctamente.
 

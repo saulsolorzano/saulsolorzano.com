@@ -4,7 +4,9 @@ date: 2018-10-14
 draft: true
 type: "post"
 ---
+<div class="p-2 bg-blue-200">
 Este es un artículo que escribí hace 7 años ya, cuando la mejor manera de hacer un layout era con floats y clearfix, muchas cosas han cambiado desde entonces, sin embargo, quiero empezar a escribir más sobre CSS y también sobre cosas básicas de CSS y aún hay muchos sitios que usan floats para layout y aunque no se use para eso los floats tienen mucho uso aún, así como también es bueno saber que es el famosos clearfix si lo vemos en algún lado. El artículo lo dejé exactamente igual a como lo escribí en ese momento.
+</div>
 
 ***
 
@@ -16,11 +18,11 @@ Seguramente cuando están leyendo tutoriales y foros en internet se encuentran c
 
 Flotar es una propiedad de posicionamiento en CSS. Podemos ver ejemplo casi a diario en la web y en el diseño impreso, lo usamos en nuestros programas de procesamiento de texto como Word, se conoce como “envolver el texto” alrededor de la imagen.
 
-![Ejemplo de texto que flota alrededor de una imagen](/uploads/print1.jpg)
+![Ejemplo de texto que flota alrededor de una imagen](../img/print1.jpg)
 
 Si no se usa esta propiedad el texto ignorará a la imagen y la “fluidez” del artículo se romperá. En diseño web se puede lograr el mismo efecto, usando esta propiedad:
 
-![Ahora vemos un ejemplo de de cuando no flotamos la imagen](/uploads/web.jpg)
+![Ahora vemos un ejemplo de de cuando no flotamos la imagen](../img/web.jpg)
 
 Si en nuestro CSS le colocamos la propiedad de float a un elemento el efecto será exactamente igual a cuando lo hacemos en Word o cualquiera de estos programas, los elementos flotados siguen formando parte de la fluidez del contenido, esto en referencia a los elementos de la página que son posicionados absoluta o relativamente, de esa manera se eliminando del flujo de contenido.
 
@@ -37,14 +39,14 @@ Hay 4 posibles valores para esta propiedad. Left (Izquierda) y Right (Derecha) q
 ## ¿Para que usamos este elemento?
 Bueno flotar elementos se usa mayormente para la maquetación, imagina que tienes esta estructura comúnmente usada:
 
-![Diagramación web](/uploads/mockup.png)
+![Diagramación web](../img/mockup.png)
 
 Usaríamos los elementos flotados para hacer que la maquetación funcionara sin problemas, en vez de estar usando posicionamientos absolutos infinitos que realmente no funcionan bien.
 
 ## Usando el elemento Clear
 El elemento CSS Clear o “despejar” va de la mano con el elemento de float, un elemento con la propiedad de clear no se moverá al lado derecho o izquierdo del elemento flotado sino que se posicionará debajo de este, ver el ejemplo:
 
-![mockup-sinclear.png](/uploads/mockup-sinclear.png)
+![mockup-sinclear.png](../img/mockup-sinclear.png)
 
 Probablemente en este punto es cuando empieces a golpearte contra la mesa y a usar “soluciones” como margin-top y position: absolute; y lanzas a pegar el valor del top para ver cómo queda, la solución realmente es bastante sencilla, simplemente al pie de página se le coloca el elemento de clear de esta manera:
 
@@ -54,7 +56,7 @@ Probablemente en este punto es cuando empieces a golpearte contra la mesa y a us
 }
 ```
 
-![mockup-conclear.png](/uploads/mockup-conclear.png)
+![mockup-conclear.png](../img/mockup-conclear.png)
 
 La propiedad clear también tiene cuatro posibles valores. Both es el más usado, despejas el float que venga de cualquier dirección. Left (Izquierda) y Right (Derecha) son usados para despejar el flote solo de una dirección. None es el que traen todos los elementos por defecto.
 
@@ -66,7 +68,7 @@ Cuando el elemento padre no tiene ninguna especie de despejo y los elementos hij
 
 En este ejemplo que es la manera más común de hacer un menú ahora el truco simple de clear:both; no funciona, la única manera de arreglar esto es despejando el elemento después que los elementos flotados en el elemento padre pero antes que este cierre. Tranquilos a mí también me cuesta bastante entender esto. Por suerte para estos casos también hay una solución sencilla.
 
-![noheight.png](/uploads/noheight.png)
+![noheight.png](../img/noheight.png)
 
 Este menú tiene el siguiente código:
 
