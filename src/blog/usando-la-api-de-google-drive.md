@@ -3,7 +3,7 @@ title: Usando la API de Google Drive para descargar imágenes y luego procesarla
 date: 2018-04-19
 published: true
 slug: usando-la-api-de-google-drive/
-meta_description: Usamos la API de Google Drive para descargar las imágenes de un formulario de Google Forms y procesarlas. Todo usando PHP
+description: Usamos la API de Google Drive para descargar las imágenes de un formulario de Google Forms y procesarlas. Todo usando PHP
 share_image: googledrive.jpg
 type: "post"
 ---

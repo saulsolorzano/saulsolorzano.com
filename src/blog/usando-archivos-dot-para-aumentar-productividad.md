@@ -1,11 +1,7 @@
 ---
-author: saul
-categories:
-- productividad
-date: "2016-01-03T00:00:00Z"
+date: 2016-01-03
 published: true
-descripcion:
-- Usando los archivos dot para aumentar la productividad
+description: "Si eres desarrollador web, ya sea frontend o backend, es probable que pases bastante tiempo de tu día en la terminal. Si es así y aún no usas los dotfiles (archivos .punto en inglés) este artículo es para tí."
 title: Usar archivos dot para aumentar productividad
 url: usando-archivos-dot-para-aumentar-productividad/
 type: "post"

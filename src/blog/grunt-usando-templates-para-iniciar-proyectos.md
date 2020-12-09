@@ -1,21 +1,10 @@
 ---
-author: saul
-categories:
-- Grunt
-date: "2014-11-23T00:00:00Z"
+date: 2014-11-23
 published: true
-descripcion: Una de las mejores funciones de Grunt es la habilidad de automatizar la creación
-  de proyectos. En este tutorial explico como usar esta poderosa herramienta.
-tags:
-- automatización
-- grunt
-- herramientas
-- javascript
-- js
-- template
+description: "Una de las mejores funciones de Grunt es la habilidad de automatizar la creación
+  de proyectos. En este tutorial explico como usar esta poderosa herramienta."
 title: 'Grunt: Usando templates para iniciar proyectos'
 url: grunt-usando-templates-para-iniciar-proyectos/
-type: "post"
 ---
 
 En el <a href="http://www.saulsolorzano.com/grunt-el-corredor-de-tareas-en-javascript/" title="Grunt: El Corredor de Tareas en JavaScript" target="_blank">último post hablé de Grunt</a> y los primeros pasos que debemos tomar para empezar a usar esta poderosa herramienta en nuestros proyectos. Una de las mejores funciones de Grunt es la habilidad de automatizar la creación de proyectos. Nos copia nuestros archivos base y nos hace algunas preguntas que podemos configurar para llenar los datos de nuestro proyecto.  

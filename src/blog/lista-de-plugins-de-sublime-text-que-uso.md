@@ -1,17 +1,8 @@
 ---
-author: saul
-categories:
-- General
-date: "2014-12-09T00:00:00Z"
+date: 2014-12-09
 published: true
-descripcion:
-- Sublime text es uno de los mejores editores de texto con los que se puede programar
-  y razón por la cual es tan potente es su gran cantidad de plugins.
-tags:
-- flujo de trabajo
-- plugins
-- sublime
-- utilidad
+description: "Sublime text es uno de los mejores editores de texto con los que se puede programar
+  y razón por la cual es tan potente es su gran cantidad de plugins."
 title: Lista de plugins de Sublime Text que uso
 url: /lista-de-plugins-de-sublime-text-que-uso/
 type: "post"

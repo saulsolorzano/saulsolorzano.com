@@ -1,21 +1,9 @@
 ---
-author: saul
-categories:
-- Grunt
-date: "2014-10-25T00:00:00Z"
-descripcion: null
+date: 2014-10-25
+description: "Grunt es un corredor de tareas de JavaScript. Si eres un desarrollador web front-end seguramente has visto Grunt más de una vez, pero muy probablemente nunca quisiste aprender porque pensaste que tu no necesitabas eso."
 published: true
-format: image
 image: grunt-1280x588-792x363.jpg
-tags:
-- automatización
-- flujo de trabajo
-- grunt
-- javascript
-- runner
-- tareas
-- task
-title: 'Grunt: El Corredor de Tareas en JavaScript'
+title: "Grunt: El Corredor de Tareas en JavaScript"
 url: /grunt-el-corredor-de-tareas-en-javascript/
 type: "post"
 ---

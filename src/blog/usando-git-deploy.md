@@ -1,13 +1,7 @@
 ---
-author: Saúl Solórzano
-categories:
-- Git
-date: "2015-11-19T00:00:00Z"
+date: 2015-11-19
 published: true
-descripcion:
-- Como usar git para hacer deploy de nuestro sitio a producción de manera instantanea.
-meta_description: Como usar git para hacer deploy de nuestro sitio a producción de
-  manera instantanea.
+description: Como usar git para hacer deploy de nuestro sitio a producción de manera instantanea.
 title: Usando git para hacer deploy de nuestro código
 url: usando-git-deploy/
 type: "post"

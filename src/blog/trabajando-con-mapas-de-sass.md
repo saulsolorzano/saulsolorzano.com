@@ -1,10 +1,8 @@
 ---
 published: true
-date: "2016-02-05T00:00:00Z"
-descripcion:
-- Usando los mapas de sass para facilitar trabajo
+date: 2016-02-05
+description: "Los mapas de sass fueron introducidos en la versión 3.3. No deben ser confundidos con los mapas de fuente que se usan para mapear tu css con tus archivos .scss o cualquier otro lenguaje que uses de preprocesador."
 title: Trabajando con mapas de sass
-url: trabajando-con-mapas-de-sass/
 type: "post"
 ---
 

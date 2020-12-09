@@ -1,11 +1,9 @@
 ---
-author: "Saúl Solórzano"
-categories: ["Utilidades"]
 date: 2018-06-20
 published: true
 title: "Lista actualizada de plugins para Sublime Text que uso, temas y otra configuración"
-slug: "/lista-actualizada-de-plugins-temas-configuracion-sublime-text/"
-descripcion:  "Han pasado ya casi 4 años desde que hice la primera recopilación y muchas cosas han cambiado. Aquí va una lista actualizada de los plugins que uso ahora."
+slug: /lista-actualizada-de-plugins-temas-configuracion-sublime-text/
+description:  "Han pasado ya casi 4 años desde que hice la primera recopilación y muchas cosas han cambiado. Aquí va una lista actualizada de los plugins que uso ahora."
 type: "post"
 ---
 <div class="mb-10 text-base bg-gray-100 p-2 leading-relaxed">

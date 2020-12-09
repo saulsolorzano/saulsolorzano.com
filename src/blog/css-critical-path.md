@@ -1,14 +1,7 @@
 ---
-author: saul
-categories:
-- css
-- desempeño
-date: "2015-11-10T00:00:00Z"
+date: 2015-11-10
 published: true
-descripcion:
-- Como utilizar el "Critical PATH" para mejorar el desempeño de tu sitio web
-meta_description: Como utilizar el "Critical PATH" para mejorar el desempeño de tu
-  sitio web
+description: Como utilizar el "Critical PATH" para mejorar el desempeño de tu sitio web
 title: Que es el Critical Path y como ayuda al desempeño de tu sitio web
 url: css-critical-path/
 type: "post"
