@@ -1,13 +1,14 @@
 import { Link } from "gatsby";
 import React from "react";
 import { graphql } from "gatsby";
-
+import SEO from "../components/seo";
 import Layout from "../components/layout";
 
 const IndexPage = ({ data }) => {
   const { blog } = data;
   return (
     <Layout>
+      <SEO />
       <div className="text-gray-800 mt-10">
         <div className="p-2 divide-gray-200 divide-y-2">
           {blog.posts.map(post => (
@@ -57,14 +58,16 @@ const IndexPage = ({ data }) => {
                 <div className="prose text-base font-copy text-gray-600">
                   <p>{post.frontmatter.description}</p>
                 </div>
-                <div>
-                  <Link
-                    to={post.fields.slug}
-                    className="text-xl border-white border-b-2 text-yellow-700 hover:border-yellow-700"
-                  >
-                    Leer todo →
-                  </Link>
-                </div>
+                {post.frontmatter.externalLink == undefined && (
+                  <div>
+                    <Link
+                      to={post.fields.slug}
+                      className="text-xl border-white border-b-2 text-yellow-700 hover:border-yellow-700"
+                    >
+                      Leer todo →
+                    </Link>
+                  </div>
+                )}
               </div>
             </article>
           ))}

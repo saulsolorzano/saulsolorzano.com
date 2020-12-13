@@ -7,7 +7,7 @@ require("dotenv").config();
 module.exports = {
   siteMetadata: {
     title: "Saúl Solórzano",
-    titleTemplate: "%s | Full Stack Developer",
+    titleTemplate: "%s | Saúl Solórzano | Full Stack Developer",
     description:
       "Hola&amp;#33; Me llamo Saúl Solórzano. Soy un desarrollador Full-Stack y consultor enfocado en el desempeño web",
     url: "https://www.saulsolorzano.com", // No trailing slash allowed!
@@ -17,7 +17,6 @@ module.exports = {
   /* Your site config here */
   plugins: [
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
@@ -58,6 +57,8 @@ module.exports = {
         path: `${__dirname}/src/img`,
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

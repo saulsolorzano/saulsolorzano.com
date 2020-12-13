@@ -18,12 +18,12 @@ const Header = ({ siteTitle }) => (
         Acerca
       </Link>
       {/* <Link to="/proyectos" className="text-gray-900 text-base hover:text-violet-500">Proyectos</Link> */}
-      <Link
+      {/* <Link
         to="/contact"
         className="text-gray-900 text-base hover:text-violet-500"
       >
         Contacto
-      </Link>
+      </Link> */}
     </nav>
   </header>
 );

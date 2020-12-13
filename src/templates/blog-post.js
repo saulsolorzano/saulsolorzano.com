@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const trimReadingTime = minutes => {
   return Math.round(minutes);
@@ -11,6 +12,7 @@ export default function BlogPost({ data, pageContext }) {
   console.log(post.frontmatter);
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} />
       <div className="text-gray-800 mt-10">
         <div className="p-2">
           <article key={post.id} className="mb-4">
