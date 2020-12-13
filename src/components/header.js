@@ -13,14 +13,14 @@ const Header = ({ siteTitle }) => (
     <nav className="space-x-4">
       <Link
         to="/acerca"
-        className="text-gray-900 text-base hover:text-blue-800"
+        className="text-gray-900 text-base hover:text-violet-500"
       >
         Acerca
       </Link>
-      {/* <Link to="/proyectos" className="text-gray-900 text-base hover:text-blue-800">Proyectos</Link> */}
+      {/* <Link to="/proyectos" className="text-gray-900 text-base hover:text-violet-500">Proyectos</Link> */}
       <Link
         to="/contact"
-        className="text-gray-900 text-base hover:text-blue-800"
+        className="text-gray-900 text-base hover:text-violet-500"
       >
         Contacto
       </Link>

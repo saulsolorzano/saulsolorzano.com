@@ -63,6 +63,7 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-reading-time`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

@@ -1,15 +1,19 @@
 import React from "react";
 
+const currentYear = () => {
+  return new Date().getFullYear();
+};
+
 const Footer = () => (
   <footer
     className="px-2 md:mx-4 md:px-10 py-6 border-t-2 mt-10 flex items-center justify-between bg-white border-gray-400"
     role="contentinfo"
   >
     <p className="text-gray-600 text-sm">
-      &copy; 2014 - 2020 Saúl Solórzano. Potenciado con
+      &copy; 2014 - {currentYear()} Saúl Solórzano. Potenciado con
       <a href="https://www.gatsbyjs.com/"> Gatsby</a>
       <br />
-      Hospedado en
+      Hospedado en{" "}
       <a
         href="http://www.netlify.com/"
         className="text-gray-600 hover:text-yellow-700"
