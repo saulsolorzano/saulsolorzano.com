@@ -11,6 +11,9 @@ const Header = ({ siteTitle }) => (
       </small>
     </h1>
     <nav className="space-x-4">
+      <Link to="/" className="text-gray-900 text-base hover:text-violet-500">
+        Home
+      </Link>
       <Link
         to="/acerca"
         className="text-gray-900 text-base hover:text-violet-500"
