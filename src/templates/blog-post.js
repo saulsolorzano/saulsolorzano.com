@@ -9,10 +9,13 @@ const trimReadingTime = minutes => {
 
 export default function BlogPost({ data, pageContext }) {
   const post = data.markdownRemark;
-  console.log(post.frontmatter);
+
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+      />
       <div className="text-gray-800 mt-10">
         <div className="p-2">
           <article key={post.id} className="mb-4">
@@ -72,6 +75,7 @@ export const query = graphql`
       frontmatter {
         date(formatString: "dddd DD [de] MMMM, YYYY", locale: "es")
         title
+        description
       }
       fields {
         slug
