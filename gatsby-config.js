@@ -7,7 +7,7 @@ require("dotenv").config();
 module.exports = {
   siteMetadata: {
     title: "Saúl Solórzano",
-    titleTemplate: "%s | Saúl Solórzano | Full Stack Developer",
+    titleTemplate: "%s | Full Stack Developer",
     description:
       "Hola&amp;#33; Me llamo Saúl Solórzano. Soy un desarrollador Full-Stack y consultor enfocado en el desempeño web",
     url: "https://www.saulsolorzano.com", // No trailing slash allowed!
