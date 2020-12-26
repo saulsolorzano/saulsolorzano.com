@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => {
       <SEO />
       <div className="text-gray-800 mt-10">
         <div className="p-2 divide-gray-200 divide-y-2">
-          {blog.posts.map(post => (
+          {blog.posts.map((post) => (
             <article
               key={post.id}
               className="py-6 xl:grid xl:grid-cols-8 xl:items-baseline"

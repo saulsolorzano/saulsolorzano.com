@@ -1,8 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
 require("dotenv").config();
 module.exports = {
   siteMetadata: {
@@ -10,11 +5,10 @@ module.exports = {
     titleTemplate: "%s | Full Stack Developer",
     description:
       "Hola&amp;#33; Me llamo Saúl Solórzano. Soy un desarrollador Full-Stack y consultor enfocado en el desempeño web",
-    url: "https://www.saulsolorzano.com", // No trailing slash allowed!
+    siteUrl: "https://www.saulsolorzano.com", // No trailing slash allowed!
     image: "/img/saul.jpg",
     twitterUsername: "@saulsolorzano",
   },
-  /* Your site config here */
   plugins: [
     `gatsby-plugin-postcss`,
     {
@@ -25,40 +19,21 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: `blog`,
-        path: `${__dirname}/src/blog`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
         name: "Saúl Solórzano",
         short_name: "Saúl Solórzano",
         start_url: "/",
+        icon: "src/img/icon.png",
         background_color: "#1E90FF",
         theme_color: "#1E90FF",
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "standalone",
-        icon: "src/img/favicon.png", // This path is relative to the root of the site.
-        // An optional attribute which provides support for CORS check.
-        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
-        // Any invalid keyword or empty string defaults to `anonymous`
-        crossOrigin: `use-credentials`,
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: `img`,
-        path: `${__dirname}/src/img`,
-      },
-    },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -120,6 +95,31 @@ module.exports = {
           },
         ],
       },
+    },
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "img",
+        path: "./src/img/",
+      },
+      __key: "img",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+      __key: "pages",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: "./src/blog/",
+      },
+      __key: "blog",
     },
   ],
 };
