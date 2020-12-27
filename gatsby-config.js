@@ -4,7 +4,7 @@ module.exports = {
     title: "Saúl Solórzano",
     titleTemplate: "%s | Full Stack Developer",
     description:
-      "Hola&amp;#33; Me llamo Saúl Solórzano. Soy un desarrollador Full-Stack y consultor enfocado en el desempeño web",
+      "Sitio personal de Saúl Solórzano. Desarrollador Full-Stack y consultor enfocado en el desempeño web",
     siteUrl: "https://www.saulsolorzano.com", // No trailing slash allowed!
     image: "/img/saul.jpg",
     twitterUsername: "@saulsolorzano",
