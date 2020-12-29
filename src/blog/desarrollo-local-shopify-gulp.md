@@ -7,3 +7,4 @@ description: "Configurando Gulp para trabajar localmente con Shopify."
 type: "post"
 ---
 
+En mi trabajo actual uso Shopify constantemente.
