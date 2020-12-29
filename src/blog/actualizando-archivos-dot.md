@@ -1,6 +1,6 @@
 ---
 date: 2020-12-18
-published: false
+published: true
 title: Actualizando mis archivos dot
 url: actualizando-archivos-dot/
 type: "post"
