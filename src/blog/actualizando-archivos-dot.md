@@ -1,6 +1,6 @@
 ---
-date: 2020-12-18
-published: true
+date: 2021-01-04
+published: false
 title: Actualizando mis archivos dot
 url: actualizando-archivos-dot/
 type: "post"
@@ -20,3 +20,5 @@ Así que los voy a actualizar y detallar las cosas que han cambiado.
 ### .zshrc
 
 El primer cambio y más importante es tener versionado mi archivo `.zshrc`
+
+a
