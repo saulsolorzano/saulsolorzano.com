@@ -1,6 +1,6 @@
 ---
 date: 2020-12-23
-published: true
+published: false
 title: Configurando ESLint con GULP desde cero por primera vez
 slug: /configurando-eslint-por-primera-vez/
 description: "Guía sencilla de cómo instalar un ambiente de desarrollo en MAC sin tener que usar algún servicio externo."
