@@ -220,6 +220,79 @@ Como podemos ver usamos bastantes paquetes y hay algunos que solo los uso para q
 
 Vamos por áres primero
 
+### Un poco de orden con variables
+
+Después de declarar todos los paquetes, vamos a ver dos variables `config` donde definimos nuestro ambiente por defecto como `dev` y definimos un `delayTime: 1200` que usaremos más adelante en el browserSync.
+
+Después vemos `paths` que son simplemente las rutas de todos los archivos que necesitaremos. La única que debería parecer rara es la sección de los SSL, será lo primero que explique a continuación.
+
+### Creando SSL local
+Como expliqué anteriormente, uno no puede trabajar con Shopify 100% local como sería un proyecto de React o Wordpress por ejemplo. Necesitas trabajar con los archivos en el servidor de Shopify y dado esto necesitas
+
+Para esto necesitas un certificado local, y a pesar de que cada vez es más fácil crear certificado local, la primera vez que hay que hacerlo es un cacho. Lo bueno es que los que hicieron Slate [crearon](https://shopify.github.io/slate/docs/create-a-self-signed-ssl-certificate) una función de bash súper cómoda que se encarga de esto por nosotros. Dudo que vayan a quitar la documentación en algún momento pero coloco la función acá por si acaso, recomiendo agregar esta función a tus [archivos dot](/actualizando-archivos-dot)
+
+Lo primero que se debe hacer es instalar 
+
+```bash
+brew install mkcert
+```
+
+```bash
+function ssl-check() {
+    f=~/.localhost_ssl;
+    ssl_crt=$f/server.crt
+    ssl_key=$f/server.key
+    b=$(tput bold)
+    c=$(tput sgr0)
+
+    # local_ip=$(ip route get 8.8.4.4 | head -1 | awk '{print $7}') # Linux Version
+    local_ip=$(ipconfig getifaddr $(route get default | grep interface | awk '{print $2}')) # Mac Version
+    # local_ip=999.999.999 # (uncomment for testing)
+
+    domains=(
+        "localhost"
+        "$local_ip"
+    )
+
+    if [[ ! -f $ssl_crt ]]; then
+        echo -e "\n🛑  ${b}Couldn't find a Slate SSL certificate:${c}"
+        make_key=true
+    elif [[ ! $(openssl x509 -noout -text -in $ssl_crt | grep $local_ip) ]]; then
+        echo -e "\n🛑  ${b}Your IP Address has changed:${c}"
+        make_key=true
+    else
+        echo -e "\n✅  ${b}Your IP address is still the same.${c}"
+    fi
+
+    if [[ $make_key == true ]]; then
+        echo -e "Generating a new Slate SSL certificate...\n"
+        count=$(( ${#domains[@]} - 1))
+        mkcert ${domains[@]}
+
+        # Create Slate's default certificate directory, if it doesn't exist
+        test ! -d $f && mkdir $f
+
+        # It appears mkcert bases its filenames off the number of domains passed after the first one.
+        # This script predicts that filename, so it can copy it to Slate's default location.
+        if [[ $count = 0 ]]; then
+            mv ./localhost.pem $ssl_crt
+            mv ./localhost-key.pem $ssl_key
+        else
+            mv ./localhost+$count.pem $ssl_crt
+            mv ./localhost+$count-key.pem $ssl_key
+        fi
+    fi
+}
+```
+Y solo debes correr la función
+```bash
+ssl-check
+```
+Y tendrás un certificado, la primera vez que lo corras te indicará si funciona, si quieres usar tu certificado en Firefox deberás correr un comando adicional y después correr una vez más tu `ssl-check`
+
+Esta función guarda los certificados en la ruta `~/.localhost_ssl`, la que vemos en nuestro `paths` 
+
+
 ### Haciendo las paces con Theme Kit
 
 Vamos a enfocarnos primero en las cosas que necesitamos para trabajar bien con Theme Kit ya que el resto es bastante estandar si alguna vez has configurado un proyecto de Gulp.
@@ -255,7 +328,72 @@ development:
     - config/settings_data.json
 ```
 
-¿Porqués es importante leer este archivo?"
+¿Porqué es importante leer este archivo? Por que Theme Kit lo usa para trabajar, y dado que tenemos que hacer un browsersync remoto, necesitamos saber la dirección para el proxy, para esto usaremos un parser de Yaml
+
+```javascript
+/**
+ * Función que nos sirve para leer el archivo de configuración
+ * de Shopify que necesitamos para ThemeKit
+ */
+function readConfig() {
+	const file = fs.readFileSync('./config.yml', 'utf8');
+	return YAML.parse(file);
+}
+```
+
+Adicionalmente a esto se usa el paquete [minimist](https://www.npmjs.com/package/minimist) para leer mejor los parámetros del comando.
+
+Cuando uno hace un `watch` o un `deploy` en Theme Kit tiene la siguiente estructura
+
+```bash
+theme watch --env=TEMA
+theme deploy --env=TEMA
+```
+Y quería usar la misma estructura en gulp por comodidad y tranquilidad mental.
+
+```bash
+gulp watch --env=TEMA
+gulp deploy --env=TEMA
+```
+
+### browserSync
+Este es uno de los paquetes más conocidos para evitar tener que refrescar el navegador a mano. Es súper cómodo cuando se está trabajando localmente poder guardar tu editor y que el navegador se actualice de maner automática y así poder ver los cambios que hiciste. A pesar de que podremos lograr que cuando salvemos nuestro editor el navegador se actualice, no será de manera instantanea. Esto es porque lo que realmente pasará con nuestro watch es que una vez se compilen nuestros recursos como el CSS y el JavaScript, se deben subir primero a Shopify y después deberemos refrescar el navegador para ver los cambios.
+
+El otro problema es que Theme Kit no dispara ningún evento cuando se termina de subir un archivo, así que el único recurso que nos queda es tratar de llegar a un estimado.
+
+```javascript
+function watch() {
+	// Leemos nuestra función con la configuración del config.yml
+	const config = readConfig();
+	// Después leemos el argumento para saber que tema estamos hablando
+	const shopifyTheme = argv.theme;
+	// Acá vemos la función completa de browsersync.
+	//Vemos acá la lectura del config.yml
+	browserSync.init({
+		proxy: `https://${config[shopifyTheme].store}?preview_theme_id=${config[shopifyTheme].theme_id}`,
+		files: '/var/tmp/theme_ready',
+		// Certificados de SSL
+		https: {
+			key:  paths.ssl.key,
+			cert: paths.ssl.cert
+		},
+		// nuestro estimado delay
+		reloadDelay: config.delayTime,
+		// Necesario para que Shopify no de problemas
+		snippetOptions: {
+			rule: {
+				match: /<\/body>/i,
+				fn: function(snippet, match) {
+					return snippet + match;
+				}
+			}
+		}
+	});
+	// Activando los watchers con nuestros assets
+	gulp.watch(paths.styles.src, gulp.series(scssLint, scss));
+	gulp.watch(paths.scripts.src, gulp.series(jsLint, js));
+}
+```
 
 ### SCSS a CSS
 
