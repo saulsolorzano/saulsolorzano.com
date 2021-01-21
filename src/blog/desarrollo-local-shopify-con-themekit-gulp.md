@@ -359,6 +359,9 @@ gulp deploy --env=TEMA
 ```
 
 ### browserSync
+
+Vamos a armar nuestro watcher y para esto necesitamos tener el browserSync configurado correctamente.
+
 Este es uno de los paquetes más conocidos para evitar tener que refrescar el navegador a mano. Es súper cómodo cuando se está trabajando localmente poder guardar tu editor y que el navegador se actualice de maner automática y así poder ver los cambios que hiciste. A pesar de que podremos lograr que cuando salvemos nuestro editor el navegador se actualice, no será de manera instantanea. Esto es porque lo que realmente pasará con nuestro watch es que una vez se compilen nuestros recursos como el CSS y el JavaScript, se deben subir primero a Shopify y después deberemos refrescar el navegador para ver los cambios.
 
 El otro problema es que Theme Kit no dispara ningún evento cuando se termina de subir un archivo, así que el único recurso que nos queda es tratar de llegar a un estimado.
@@ -374,15 +377,11 @@ Después leemos el argumento para saber que tema estamos hablando
 const shopifyTheme = argv.theme;
 ```
 
+Y ahora entramos a la función del browserSync como tal, lo primero que vemos es el proxy, esto indica que estamos trabajando con una dirección remota, aquí usamos el nombre del tema/tienda que pasamos en nuestro parámetro para leer la URL del tema y el ID del tema. 
+
+Otra cosa importante es el archivo que usamos para notificar con el Theme Kit.
 
 ```javascript
-function watch() {
-
-
-	// 
-
-	// Acá vemos la función completa de browsersync.
-	//Vemos acá la lectura del config.yml
 	browserSync.init({
 		proxy: `https://${config[shopifyTheme].store}?preview_theme_id=${config[shopifyTheme].theme_id}`,
 		files: '/var/tmp/theme_ready',
@@ -406,7 +405,7 @@ function watch() {
 	// Activando los watchers con nuestros assets
 	gulp.watch(paths.styles.src, gulp.series(scssLint, scss));
 	gulp.watch(paths.scripts.src, gulp.series(jsLint, js));
-}
+
 ```
 
 ### SCSS a CSS
