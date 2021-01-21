@@ -229,13 +229,15 @@ Después vemos `paths` que son simplemente las rutas de todos los archivos que n
 ### Creando SSL local
 Como expliqué anteriormente, uno no puede trabajar con Shopify 100% local como sería un proyecto de React o Wordpress por ejemplo. Necesitas trabajar con los archivos en el servidor de Shopify y dado esto necesitas
 
-Para esto necesitas un certificado local, y a pesar de que cada vez es más fácil crear certificado local, la primera vez que hay que hacerlo es un cacho. Lo bueno es que los que hicieron Slate [crearon](https://shopify.github.io/slate/docs/create-a-self-signed-ssl-certificate) una función de bash súper cómoda que se encarga de esto por nosotros. Dudo que vayan a quitar la documentación en algún momento pero coloco la función acá por si acaso, recomiendo agregar esta función a tus [archivos dot](/actualizando-archivos-dot)
+Para esto necesitas un certificado local, y a pesar de que cada vez es más fácil crear certificado local, la primera vez que hay que hacerlo es un cacho. Lo bueno es que los que hicieron Slate [crearon](https://shopify.github.io/slate/docs/create-a-self-signed-ssl-certificate) una función de bash súper cómoda que se encarga de esto por nosotros. Dudo que vayan a quitar la documentación en algún momento pero dejo los pasos acá por si acaso.
 
 Lo primero que se debe hacer es instalar 
 
 ```bash
 brew install mkcert
 ```
+
+Debemos copiar esta función en nuestra terminal, o mejor aún, recomiendo agregar esta función a tus [archivos dot](/actualizando-archivos-dot)
 
 ```bash
 function ssl-check() {
@@ -361,12 +363,24 @@ Este es uno de los paquetes más conocidos para evitar tener que refrescar el na
 
 El otro problema es que Theme Kit no dispara ningún evento cuando se termina de subir un archivo, así que el único recurso que nos queda es tratar de llegar a un estimado.
 
+Vamos a ver el archivo paso por paso y después lo veremos completo. Lo primero que debemos hacer es usar nuestra función declarada anteriormente para leer el `config.yml`.
+
+```javascript
+const config = readConfig();
+```
+
+Después leemos el argumento para saber que tema estamos hablando
+```javascript
+const shopifyTheme = argv.theme;
+```
+
+
 ```javascript
 function watch() {
-	// Leemos nuestra función con la configuración del config.yml
-	const config = readConfig();
-	// Después leemos el argumento para saber que tema estamos hablando
-	const shopifyTheme = argv.theme;
+
+
+	// 
+
 	// Acá vemos la función completa de browsersync.
 	//Vemos acá la lectura del config.yml
 	browserSync.init({
