@@ -7,6 +7,8 @@ description: "Configurando Gulp y Themekit para trabajar localmente con Shopify.
 type: "post"
 ---
 
+TDLR: Si quieres trabajar localmente con tu tema de Shopify, debes tener instalado [Theme Kit](https://shopify.github.io/themekit/) y Gulp usando este [Gulpfile](#)
+
 El principal foco de mi trabajo actual es Shopify. Cuando empecé en mi trabajo actual, mi primera responsabilidad fue programar el rediseño del [sitio principal de ecommerce](http://ankerstore.cl/), y además traspasarlo de <a href="https://jumpseller.com/" target="_blank">Jumpseller</a> a Shopify.
 
 Cuando empecé a programar este nuevo sitio Shopify recomendaba usar <a href="https://shopify.github.io/slate/docs/about" target="_blank">Slate</a>, y a pesar de no ser una herramienta perfecta, hacía el trabajo local muy cómodo.
@@ -218,9 +220,42 @@ Como podemos ver usamos bastantes paquetes y hay algunos que solo los uso para q
 
 Vamos por áres primero
 
-### Haciendo las paces con Themekit
+### Haciendo las paces con Theme Kit
 
+Vamos a enfocarnos primero en las cosas que necesitamos para trabajar bien con Theme Kit ya que el resto es bastante estandar si alguna vez has configurado un proyecto de Gulp.
 
+Cuando [José](https://github.com/josehollow24) creó la primera versión de este Gulpfile, uno de los problemas que tuvo es el problema de sincronización entre los watchers y el `theme watch` de Theme Kit para subir los archivos a Shopify. Después de buscar bastante resulta que el problema es como funcionan los watchers, cuando trabajan no actualizan la fecha de modificación del archivo, por lo menos no como uno pensaría, y el watcher de Theme Kit usa esa fecha para saber si el archivo a cambiado o no, así que lo primero que debemos hacer es implementar esta función
+
+```javascript
+/**
+ * Función que asegura que el archivo se actualice
+ * con fecha para que Themekit lo agare
+ */
+const touch = () => t2.obj( function( file, enc, cb ) {
+	if ( file.stat ) {
+		file.stat.atime = file.stat.mtime = file.stat.ctime = new Date();
+	}
+	cb( null, file );
+});
+
+```
+
+#### Config.yml
+Theme kit usa un archivo el archivo config.yml para tener la información de la tienda y el tema con el cual se está trabajando. Este archivo tiene la siguiente estructura:
+
+```yaml
+development:
+  password: 16ef663594568325d64408ebcdeef528
+  theme_id: "123"
+  store: can-i-buy-a-feeling.myshopify.com
+  proxy: http://localhost:3000
+  ignore_files:
+    - "*.gif"
+    - "*.jpg"
+    - config/settings_data.json
+```
+
+¿Porqués es importante leer este archivo?"
 
 ### SCSS a CSS
 
