@@ -1,60 +1,49 @@
 ---
-date: 2021-01-12
-published: false
+date: 2021-01-29
+published: true
 title: Usando Gulp para desarrollo local con Shopify
 slug: /desarrollo-local-shopify-con-themekit-gulp
-description: "Configurando Gulp y Themekit para trabajar localmente con Shopify."
+description: "Explicación de como configurar Gulp y nuestro Gulpfile para que funcione correctamente con Theme Kit."
 type: "post"
 ---
 
-TDLR: Si quieres trabajar localmente con tu tema de Shopify, debes tener instalado [Theme Kit](https://shopify.github.io/themekit/) y Gulp usando este [Gulpfile](#)
+<div class="bg-gray-100 w-10/12 m-auto border series-index">
+	<span class="font-bold m-0 py-1 px-5 block text-blue-700">Desarrollo de temas con Shopify</span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/recomendaciones-trabajo-con-shopify">1. Recomendaciones para trabajar con temas de Shopify</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/instalando-theme-kit">2. Instalando Theme Kit</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/creando-certificado-seguridad-local">3. Creando certificado de seguridad local</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/desarrollo-local-shopify-con-themekit-gulp" class="current">4. Usando Gulp para desarrollo local con Shopify</a></span>
+</div>
 
-El principal foco de mi trabajo actual es Shopify. Cuando empecé en mi trabajo actual, mi primera responsabilidad fue programar el rediseño del [sitio principal de ecommerce](http://ankerstore.cl/), y además traspasarlo de <a href="https://jumpseller.com/" target="_blank">Jumpseller</a> a Shopify.
+**TDLR**: Si quieres trabajar localmente con tu tema de Shopify, debes tener instalado [Theme Kit](/instalando-theme-kit) y Gulp usando el [Gulpfile](#gulpfile) que se encuentra más abajo
+***
 
-Cuando empecé a programar este nuevo sitio Shopify recomendaba usar <a href="https://shopify.github.io/slate/docs/about" target="_blank">Slate</a>, y a pesar de no ser una herramienta perfecta, hacía el trabajo local muy cómodo.
+Cuando es está trabajando con desarrollo local de un tema de Shopify, lo más recomendado es trabajar con Theme Kit, el problema es que Theme Kit es bastante básico en su comportamiento. Así que adicionalmente a las cosas más normales en Gulp como SCSS y JavaScript, debemos hacer unos pasos extras para que funcione bien con nuestra tienda de Shopify.
 
-Shopify no permite tener el tema 100% local, necesita igual correr desde Shopify, pero Slate permitía lo más cercano, el problema es que terminando el tema Slate entró en modo de "Poco mantenimiento" diciendo que se tomarían 6 meses para evaluarlo, y recomendaban que si querías algo a largo plazo usaras [Themekit](https://shopify.github.io/themekit/), Slate realmente está construído encima de Themekit. El problema es que Themekit es muy diferente a Slate, themekit tiene varios comandos, pero los más importantes watch y deploy no hacen más que eso. Si querías todo el ambiente de desarrollo local tenías que hacerlo tu con Webpack, Gulp o Grunt.
+La lista de tareas se ve así:
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/10PcMWwtZSYk2k" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/aint-nobody-got-time-for-that-gif-10PcMWwtZSYk2k">via GIPHY</a></p>
-
-Así que decidí seguir con Slate con la leve esperanza de que continuaran con el soporte, pero en enero de 2020 confirmaron que le iban a quitar el soporte al proyecto, matándolo básicamente.
-
-Y a pesar de que decidí quedarme con Slate por un tiempo más, fue imposible a largo plazo. Había empezado a dar problemas con la conexión y algunos errores en el deploy. Así que después de pensarlo, con [José](https://github.com/josehollow24), el otro Front del equipo decidimos cambiarnos a Themekit.
-
-Había varias cosas que Slate permitía que habían la experiencia de Shopify bastante cómoda.
-
-- Compilación de SCSS a CSS
-- Compilación de JavaScript y soporte de ES6+ con Babel
-- Manejar ambientes de desarrollo (Temas y tiendas)
-- Manejo de dependencias con Webpack
-- Watch y Deploy
-
-Así que tendría que replicar todo y junto con Themekit, la experiencia sería lo más parecido posible.
-
-## Themekit
-Lo primero que debes hacer es [instalar Themekit](https://shopify.github.io/themekit/#installation)
-
-Las instrucciones son súper sencillas, si usas macOS, con correr esto tienes
-
-```bash
-brew tap shopify/shopify
-brew install themekit
-```
-De todas formas recomiendo revisar la documentación por si esto ha cambiado desde que se escribió este artículo.
+- [ ] Compilación de SCSS a CSS
+- [ ] Compilación de JavaScript y soporte de ES6+ con Babel
+- [ ] Manejar ambientes de desarrollo (Temas y tiendas)
+- [ ] Manejo de dependencias con Webpack
+- [ ] Watch con BrowserSync y Shopify
 
 ## GULP
 
 
 ![artem-beliaikin-JsB3j_d4Fnk-unsplash.jpg](../img/artem-beliaikin-JsB3j_d4Fnk-unsplash.jpg)
-<span class="text-sm">Photo by <a href="https://unsplash.com/@belart84?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Artem Beliaikin</a> on <a href="https://unsplash.com/s/photos/plastic-cup?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+<span class="text-sm text-center block mt-4">Photo by <a href="https://unsplash.com/@belart84?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Artem Beliaikin</a> on <a href="https://unsplash.com/s/photos/plastic-cup?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
-Si aún no has usado GULP, es un corredor de tareas. Yo solía usar [mucho](https://www.saulsolorzano.com/grunt-el-corredor-de-tareas-en-javascript/) [Grunt](https://www.saulsolorzano.com/grunt-usando-templates-para-iniciar-proyectos/) que era muy pópular en esa época pero la verdad Gulp ganó la batalla, es más rápido que Grunt y se ha mantenido muy actualizado.
+Lo más probable es que alguna vez hayas usado Gulp, pero capaz nunca te ha tocado configurarlo desde cero o crear un Gulpfile, si es así, la idea de este artículo es explicarte los pasos que se tomaron dado que lo más probable es que tengas que modificarlo para reflejar tu ambiente de desarrollo.
 
-El primer problema que tuve con Gulp es que tenía mucho tiempo sin usarlo, y nunca había usado la versión 4 de Gulp, la mayoría de tutoriales que encontré usaban la sintaxis de la versión 3 así que me costó un poco hacerlo funcionar correctamente todo.
+#### ¿Por qué usar Gulp y no Webpack?
+Creo que es justo decir que webpack es la opción más popular entre los dos, dado que muchos frameworks usan webpack, y aunque muchas veces son intercambiables, la verdad es que son herramientas diferentes. Webpack es un "empaquetador (bundler)" cuya principal función es trabajar con JavaScript, todo se hace con JavaScript, en cambio Gulp es un corredor de tareas que expone una API bastante sencilla para trabajar. 
 
-Decidí usar Gulp para lograr esta tarea.
+Dado que no estamos trabajando con un framework de JavaScript, usar Gulp tiene mucho más sentido.
 
-Tomó varios meses en llegar al Gulpfile final que estamos usando ahora. Así que en lugar de contar toda la historia, veamos el resultado final y explicaré paso a paso que se hace.
+Primero vamos a ver el Gulpfile completo para los que solo les interese eso y debajo emplico todo más detallado.
+
+##### [Gulpfile](#gulpfile)
 
 ```javascript
 const gulp      = require('gulp'),
@@ -216,90 +205,21 @@ exports.watch = gulp.series(jsLint, js, scssLint, scss, watch);
 exports.production = gulp.series(setProductionEnvironment, scssLint, scss, jsLint, js);
 ```
 
-Como podemos ver usamos bastantes paquetes y hay algunos que solo los uso para que Themekit funcione de manera correcta con el Watch.
+Como podemos ver usamos bastantes paquetes y hay algunos que solo los uso para que Theme Kit funcione de manera correcta con el Watch.
 
-Vamos por áres primero
-
-### Un poco de orden con variables
+## Un poco de orden con variables
 
 Después de declarar todos los paquetes, vamos a ver dos variables `config` donde definimos nuestro ambiente por defecto como `dev` y definimos un `delayTime: 1200` que usaremos más adelante en el browserSync.
 
-Después vemos `paths` que son simplemente las rutas de todos los archivos que necesitaremos. La única que debería parecer rara es la sección de los SSL, será lo primero que explique a continuación.
+Después vemos `paths` que son simplemente las rutas de todos los archivos que necesitaremos. La única que debería parecer rara es la sección de los SSL, esta es la ruta donde los [certificados de seguridad](/creando-certificado-seguridad-local) son creados.
 
-### Creando SSL local
-Como expliqué anteriormente, uno no puede trabajar con Shopify 100% local como sería un proyecto de React o Wordpress por ejemplo. Necesitas trabajar con los archivos en el servidor de Shopify y dado esto necesitas
-
-Para esto necesitas un certificado local, y a pesar de que cada vez es más fácil crear certificado local, la primera vez que hay que hacerlo es un cacho. Lo bueno es que los que hicieron Slate [crearon](https://shopify.github.io/slate/docs/create-a-self-signed-ssl-certificate) una función de bash súper cómoda que se encarga de esto por nosotros. Dudo que vayan a quitar la documentación en algún momento pero dejo los pasos acá por si acaso.
-
-Lo primero que se debe hacer es instalar 
-
-```bash
-brew install mkcert
-```
-
-Debemos copiar esta función en nuestra terminal, o mejor aún, recomiendo agregar esta función a tus [archivos dot](/actualizando-archivos-dot)
-
-```bash
-function ssl-check() {
-    f=~/.localhost_ssl;
-    ssl_crt=$f/server.crt
-    ssl_key=$f/server.key
-    b=$(tput bold)
-    c=$(tput sgr0)
-
-    # local_ip=$(ip route get 8.8.4.4 | head -1 | awk '{print $7}') # Linux Version
-    local_ip=$(ipconfig getifaddr $(route get default | grep interface | awk '{print $2}')) # Mac Version
-    # local_ip=999.999.999 # (uncomment for testing)
-
-    domains=(
-        "localhost"
-        "$local_ip"
-    )
-
-    if [[ ! -f $ssl_crt ]]; then
-        echo -e "\n🛑  ${b}Couldn't find a Slate SSL certificate:${c}"
-        make_key=true
-    elif [[ ! $(openssl x509 -noout -text -in $ssl_crt | grep $local_ip) ]]; then
-        echo -e "\n🛑  ${b}Your IP Address has changed:${c}"
-        make_key=true
-    else
-        echo -e "\n✅  ${b}Your IP address is still the same.${c}"
-    fi
-
-    if [[ $make_key == true ]]; then
-        echo -e "Generating a new Slate SSL certificate...\n"
-        count=$(( ${#domains[@]} - 1))
-        mkcert ${domains[@]}
-
-        # Create Slate's default certificate directory, if it doesn't exist
-        test ! -d $f && mkdir $f
-
-        # It appears mkcert bases its filenames off the number of domains passed after the first one.
-        # This script predicts that filename, so it can copy it to Slate's default location.
-        if [[ $count = 0 ]]; then
-            mv ./localhost.pem $ssl_crt
-            mv ./localhost-key.pem $ssl_key
-        else
-            mv ./localhost+$count.pem $ssl_crt
-            mv ./localhost+$count-key.pem $ssl_key
-        fi
-    fi
-}
-```
-Y solo debes correr la función
-```bash
-ssl-check
-```
-Y tendrás un certificado, la primera vez que lo corras te indicará si funciona, si quieres usar tu certificado en Firefox deberás correr un comando adicional y después correr una vez más tu `ssl-check`
-
-Esta función guarda los certificados en la ruta `~/.localhost_ssl`, la que vemos en nuestro `paths` 
 
 
 ### Haciendo las paces con Theme Kit
 
 Vamos a enfocarnos primero en las cosas que necesitamos para trabajar bien con Theme Kit ya que el resto es bastante estandar si alguna vez has configurado un proyecto de Gulp.
 
-Cuando [José](https://github.com/josehollow24) creó la primera versión de este Gulpfile, uno de los problemas que tuvo es el problema de sincronización entre los watchers y el `theme watch` de Theme Kit para subir los archivos a Shopify. Después de buscar bastante resulta que el problema es como funcionan los watchers, cuando trabajan no actualizan la fecha de modificación del archivo, por lo menos no como uno pensaría, y el watcher de Theme Kit usa esa fecha para saber si el archivo a cambiado o no, así que lo primero que debemos hacer es implementar esta función
+Cuando mi compañero [José](https://github.com/josehollow24) creó la primera versión de este Gulpfile, uno de los problemas que tuvo es el problema de sincronización entre los watchers y el `theme watch` de Theme Kit para subir los archivos a Shopify. Después de buscar bastante, resulta que el problema es cómo funcionan los watchers, cuando corren, estos no actualizan la fecha de modificación del archivo, por lo menos no como uno pensaría, y el watcher de Theme Kit usa esa fecha para saber si el archivo a cambiado o no, así que lo primero que debemos hacer es implementar esta función
 
 ```javascript
 /**
@@ -315,22 +235,11 @@ const touch = () => t2.obj( function( file, enc, cb ) {
 
 ```
 
-#### Config.yml
-Theme kit usa un archivo el archivo config.yml para tener la información de la tienda y el tema con el cual se está trabajando. Este archivo tiene la siguiente estructura:
+Básicamente esta forza el tiempo de actualización del archivo para que Theme Kit lo detecte
 
-```yaml
-development:
-  password: 16ef663594568325d64408ebcdeef528
-  theme_id: "123"
-  store: can-i-buy-a-feeling.myshopify.com
-  proxy: http://localhost:3000
-  ignore_files:
-    - "*.gif"
-    - "*.jpg"
-    - config/settings_data.json
-```
+#### Ambiente de desarrollo
 
-¿Porqué es importante leer este archivo? Por que Theme Kit lo usa para trabajar, y dado que tenemos que hacer un browsersync remoto, necesitamos saber la dirección para el proxy, para esto usaremos un parser de Yaml
+Ya expliqué con [detalle anteriormente](/instalando-theme-kit) como funciona el archivo `config.yml` dentro del contexto de Theme Kit. Dado que tenemos que hacer un browsersync remoto, necesitamos saber la dirección para el proxy, para esto usaremos un parser de Yaml
 
 ```javascript
 /**
@@ -343,41 +252,49 @@ function readConfig() {
 }
 ```
 
-Adicionalmente a esto se usa el paquete [minimist](https://www.npmjs.com/package/minimist) para leer mejor los parámetros del comando.
+Adicionalmente a esto usamos el paquete <a href="https://www.npmjs.com/package/minimist" target="_blank">minimist</a> para leer mejor los parámetros del comando.
 
 Cuando uno hace un `watch` o un `deploy` en Theme Kit tiene la siguiente estructura
 
 ```bash
-theme watch --env=TEMA
-theme deploy --env=TEMA
+theme watch --env=[Ambiente]
+theme deploy --env=[Ambiente]
 ```
-Y quería usar la misma estructura en gulp por comodidad y tranquilidad mental.
+Lo ideal es usar la misma estructura en gulp por comodidad y tranquilidad mental.
 
 ```bash
-gulp watch --env=TEMA
-gulp deploy --env=TEMA
+gulp watch --env=[Ambiente]
+gulp deploy --env=[Ambiente]
 ```
+
+Así que haciendo uso de minimalist para leer ese `--env=[Ambiente]` podremos hacer referencia al contenido de nuestro `config.yml`
 
 ### browserSync
 
 Vamos a armar nuestro watcher y para esto necesitamos tener el browserSync configurado correctamente.
 
-Este es uno de los paquetes más conocidos para evitar tener que refrescar el navegador a mano. Es súper cómodo cuando se está trabajando localmente poder guardar tu editor y que el navegador se actualice de maner automática y así poder ver los cambios que hiciste. A pesar de que podremos lograr que cuando salvemos nuestro editor el navegador se actualice, no será de manera instantanea. Esto es porque lo que realmente pasará con nuestro watch es que una vez se compilen nuestros recursos como el CSS y el JavaScript, se deben subir primero a Shopify y después deberemos refrescar el navegador para ver los cambios.
+Este es uno de los paquetes más conocidos para evitar tener que refrescar el navegador a mano. Es súper cómodo cuando se está trabajando localmente poder guardar en tu editor y que el navegador se actualice de manera automática pudiendo así ver los cambios que hiciste.
 
-El otro problema es que Theme Kit no dispara ningún evento cuando se termina de subir un archivo, así que el único recurso que nos queda es tratar de llegar a un estimado.
+Lamentablemente no podremos lograr ese efecto de manera automática, esto es porque lo que realmente pasará con nuestro watch es que una vez se compilen nuestros recursos como el CSS y el JavaScript, se deben subir primero a Shopify y después deberemos refrescar el navegador para ver los cambios. Aquí es donde usamos el `delayTime` que había comentado anteriormente.
 
-Vamos a ver el archivo paso por paso y después lo veremos completo. Lo primero que debemos hacer es usar nuestra función declarada anteriormente para leer el `config.yml`.
+El otro problema es que Theme Kit no dispara ningún evento cuando se termina de subir un archivo, así que el único recurso que nos queda es tratar de llegar a un estimado, así llegue a los 1200, pero esto debe ser adaptado, si tienes una computadora más lenta, probablemente sería buena idea incrementarlo, posiblemente en una versión futura lo deje como un parámetro que se pase por el comando, algo como
+
+```bash
+gulp watch --env=[ambiente] --delay=1200
+```
+
+Vamos a ver la función paso por paso y después la armamos completamente. Lo primero que debemos hacer es usar nuestra función declarada anteriormente para leer el `config.yml`.
 
 ```javascript
 const config = readConfig();
 ```
 
-Después leemos el argumento para saber que tema estamos hablando
+Después leemos el argumento para saber que ambiente usaremos
 ```javascript
-const shopifyTheme = argv.theme;
+const shopifyTheme = argv.env;
 ```
 
-Y ahora entramos a la función del browserSync como tal, lo primero que vemos es el proxy, esto indica que estamos trabajando con una dirección remota, aquí usamos el nombre del tema/tienda que pasamos en nuestro parámetro para leer la URL del tema y el ID del tema. 
+Y ahora entramos a la función del browserSync como tal, lo primero que vemos es el proxy, esto indica que estamos trabajando con una dirección remota, aquí usamos el nombre del ambiente que pasamos en nuestro parámetro para leer la URL del tema y el ID del tema. 
 
 Otra cosa importante es el archivo que usamos para notificar con el Theme Kit.
 
@@ -410,7 +327,7 @@ Otra cosa importante es el archivo que usamos para notificar con el Theme Kit.
 
 ### SCSS a CSS
 
-Esta es la parte más fácil y estándar, decidimos implementar un linter ya que somos dos personas modificando el código actualmente, con más en el camino pronto y tenemos tres tiendas ya de Shopify, así que mantener un mismo estándar de programación es bastante cómodo.
+Esta es la parte más fácil y estándar. Adicionalmente la compilación de SCSS a CSS, decidimos implementar un linter ya que somos dos personas actualmente modificando el código, con más en el camino pronto y tenemos tres tiendas ya de Shopify, así que mantener un mismo estándar de programación es bastante cómodo.
 
 La primera función `scssLint()` es la que se encarga de eso, la segunda función `scss()` es la que compila el SCSS a CSS, notarán la función `touch()`
 
@@ -429,3 +346,77 @@ function scss() {
 		.pipe(gulp.dest('assets'));
 }
 ```
+
+### JavaScript
+
+Al igual que con el SCSS, se implementó un linter para JavaScript usando ESlint, es la primera función y después tenemos la función que se encarga de transpilar el JavaScript.
+
+```javascript
+// JAVASCRIPT
+function jsLint() {
+	return gulp
+		.src(
+			[paths.scripts.templates]
+		)
+		.pipe(eslint())
+		.pipe(eslint.format())
+		.pipe(eslint.failAfterError());
+}
+
+function js(done) {
+	glob(paths.scripts.templates, function(err, files) {
+		if (err) {
+			done(err);
+		};
+
+		var tasks = files.map(function(entry) {
+			return browserify({
+				entries: [entry]
+			})
+			.transform(babelify.configure({
+				presets: ['@babel/preset-env']
+			}))
+			.bundle()
+			.pipe(source(entry))
+			// Aquí sólo compilamos los templates
+			// y le colocamos el prefijo
+			// .template. para mejor targetearlos
+			// con el liquid
+			.pipe(rename({
+				dirname: '',
+				prefix:  'template.',
+				extname: '.js'
+			}))
+			.pipe(buffer())
+			.pipe(eslint())
+			.pipe(uglify())
+			.pipe(touch())
+			.pipe(gulp.dest('assets'))
+			.pipe(browserSync.stream({once: true}));
+		});
+
+		es.merge(tasks).on('end', done);
+
+	});
+	done();
+}
+```
+
+### Siguientes pasos
+En estos momentos, debemos tener dos ventanas abiertas de la terminal:
+
+```bash
+# Primera ventana
+theme watch --env=[Ambiente] --notify=/var/tmp/theme_ready
+```
+
+```bash
+# Segunda ventana
+gulp watch --env=[Ambiente]
+```
+
+Para que todo funcione, estoy trabajando en un paquete para que todo sea más fácil y poder integrar de mejor manera. Cuando lo tenga listo seguro escribiré un artículo también y lo publicaré. Por los momentos, tenemos varios meses trabajando así sin ningún problema. Cualquier sugerencia es más que bienvenida.
+
+***
+
+Con esto deberíamos tener un ambiente de trabajo local con Shopify. Cualquier duda, como siempre, me pueden escribir un email. Gracias por leer.
