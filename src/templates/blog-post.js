@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const trimReadingTime = minutes => {
+const trimReadingTime = (minutes) => {
   return Math.round(minutes);
 };
 
@@ -57,7 +57,7 @@ export default function BlogPost({ data, pageContext }) {
             </div>
             <main className="">
               <div
-                className="w-3/4 mx-auto text-base font-regular font-copy leading-relaxed text-gray-700 prose lg:prose-xl prose-indigo max-w-none"
+                className="sm:w-3/4 mx-auto text-base font-regular font-copy leading-relaxed text-gray-700 prose lg:prose-xl prose-indigo max-w-none"
                 dangerouslySetInnerHTML={{ __html: post.html }}
               />
             </main>
