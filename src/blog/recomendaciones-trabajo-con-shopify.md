@@ -15,9 +15,9 @@ type: "post"
 	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold"><a href="/desarrollo-local-shopify-con-themekit-gulp">4. Usando Gulp para desarrollo local con Shopify</a></span>
 </div>
 
-Shopify cada vez se hace más relevante en el mercado actual. En el último Black Friday/Cyber Monday Shopify procesó un total de 5.1 Billones de dólares en ventas, en Chile y el resto de Latinoamérica está un poco más retrasada su adopción pero está avanzando a pasos agigantados. Eso por esto que cada vez es más relevante para nosotros como programadores tener buen base del trabajo en Shopify. Tengo ya un poco más de dos años trabajando activamente con Shopify, casi todos los días toco código de [alguna](https://ankerstore.cl/) de [nuestras]((https://instantstore.cl/)) [tiendas](https://conairstore.cl/).
+Shopify se hace cada vez más relevante en el mercado actual. En el último Black Friday/Cyber Monday Shopify procesó un total de 5.1 mil millones de dólares en ventas; pese a que en Chile y el resto de Latinoamérica está un poco más retrasada su adopción, está avanzando a pasos agigantados. Por esto es que cada vez es más relevante, para nosotros como programadores tener una buena base del trabajo en Shopify. Tengo ya un poco más de dos años trabajando activamente con Shopify, casi todos los días toco código de [alguna](https://ankerstore.cl/) de [nuestras]((https://instantstore.cl/)) [tiendas](https://conairstore.cl/).
 
-La idea de esta mini serie es ayudar con el desarrollo, es decir, creación y desarrollo continuo de trabajo con temas de Shopify. Cuando empecé a escribir este artículo estaba enfocado sólamente en la configuración del Gulp pero decidí separarlo en varias partes por dos motivos, primero porque el artículo ya estaba siendo muy largo y por otro lado porque me permitía dar un poco más de contexto en otras áreas, como este que sirve de intruducción.
+La idea de esta mini serie es ayudar con el desarrollo, es decir, creación y desarrollo continuo de trabajo con temas de Shopify. Cuando empecé a escribir este artículo estaba enfocado solamente en la configuración del Gulp pero decidí separarlo en varias partes por dos motivos, primero porque el artículo ya estaba siendo muy largo y por otro lado porque me permitía dar un poco más de contexto en otras áreas, como este que sirve de introducción.
 
 Lo primero que debemos saber es que es realmente imposible trabajar 100% local con Shopify, ya que nunca se puede "instalar" Shopify localmente. Esto es muy diferente a trabajar con otras herramientas como Laravel, Wordpress o algún framework de JavaScript. Acá dejo algunos consejos antes de tocar código.
 
@@ -25,9 +25,9 @@ Lo primero que debemos saber es que es realmente imposible trabajar 100% local c
 
 La manera más cómoda de trabajar con Shopify es usando <a href="https://shopify.github.io/themekit/" target="_blank">Theme Kit</a>. Esto te permitirá tener tu tema local y versionado con github y al mismo tiempo sincronizado con los servidores de Shopify.
 
-Shopify solía mantener una herramienta construída encima de Theme Kit llamada Slate, pero empezando el 2020 decidieron descontinuarla porque se querían "enfocar" en otras prioridades. 
+Shopify solía mantener una herramienta construida encima de Theme Kit llamada Slate, pero empezando el 2020 decidieron descontinuarla porque se querían "enfocar" en otras prioridades. 
 
-La ventaja que tenía Slate es que tenía un ambiente completo de desarrollo. Con linters, watchers y todo incluído. Una vez que Slate fue descontinuado, tuve que crear toda la funcionalidad, bueno casi toda, usando Gulp.
+La ventaja de Slate es que era un ambiente completo de desarrollo. Con linters, watchers y todo incluido. Una vez que Slate fue descontinuado, tuve que crear toda la funcionalidad, bueno casi toda, usando Gulp.
 
 ## 2. Crea una cuenta en Shopify Partners
 <a href="https://www.shopify.com/partners" target="_blank">Shopify partners</a> es un programa que ofrece Shopify para agencias y desarrolladores freelance para crear temas y aplicaciones. Una de las ventajas que ofrece es que te permite crear tiendas gratis ilimitadas.
@@ -38,17 +38,17 @@ Hay tres maneras de trabajar con un tema de Shopify:
 Debería ser obvio porque es una mala idea, si haces algún cambio se va a ver directamente reflejado a todos los usuarios de tu sitio.
 
 #### Trabajar con un tema duplicado en la tienda principal
-Esta es realmente la más cómoda pero no la más flexible, es la más cómoda porque tienes todos los productos, menús de navegación y tema ya configurado, solo debes duplicar el tema que está en vivo y podrás trabajar con este. 
+Esta es realmente la más cómoda pero no la más flexible. Es la más cómoda porque tienes todos los productos, menús de navegación y tema ya configurado, solo debes duplicar el tema que está en vivo y podrás trabajar con este. 
 
 ![duplicar-tema](../img/duplicar-tema.png)
 
-¿Porqué digo que no es la opción más flexible? Porque si necesitas cambiar templates, precios de productos o cualquier otra cosa que no sea del tema, sino de Shopify como tal, no podrás porque eso afectará al sitio que esta en vivo.
+¿Porqué digo que no es la opción más flexible? Porque si necesitas cambiar templates, precios de productos o cualquier otra cosa que no sea del tema, sino de Shopify como tal, no podrás porque eso afectará al sitio que está en vivo.
 
 #### Crearse una cuenta en Shopify Partners y crear tiendas de prueba.
 
 La mejor opción, pero a que toma un poco más de tiempo, es crearse una cuenta en [Shopify Partners](https://www.shopify.com/partners)
 
-¿Porqué Shopify Partners y no una tienda nueva normal? Porque la tiendas reales tienen un máximo de 14 días de pruebas antes de que tengas que pagarla, cuando creas una tienda con Shopify Partners tienes la opción de hacer una tienda solo de prueba que tendrá todas las opciones de una tienda Avanzada y no tiene límite de tiempo.
+¿Porqué Shopify Partners y no una tienda nueva normal? Porque las tiendas reales tienen un máximo de 14 días de pruebas antes de que tengas que pagarla, cuando creas una tienda con Shopify Partners tienes la opción de hacer una tienda solo de prueba que tendrá todas las opciones de una tienda Avanzada y no tiene límite de tiempo.
 
 ## 3. Configura tu tienda nueva como la anterior
 Tristemente no existe una opción de "exportar tienda" o algo parecido. Hay cosas que sí puedes exportar, lo más cómodo es la habilidad de exportar los productos, pero hay ciertas cosas que no se pueden exportar como los menús de navegación. Un consejo que daría es exportar el archivo `settings_data.json` del tema que está en producción. No se exportarán las imágenes del tema ni los menús de navegación pero tendrás la tienda lo más parecido que se puede hacer.
@@ -62,7 +62,7 @@ Liquid es usado en varios ambientes de desarrollo fue originalmente creado <a hr
 Es importante siempre buscar la documentación de Shopify porque hay un par de versiones de liquid ligeramente diferentes a las usadas en Shopify.
 
 ## 6. Conocer la estructura de los temas de Shopify
-Los temas de shopify tienen una estructura de carpetas bastante definida y da muy poco espacio para modificarla.
+Los temas de Shopify tienen una estructura de carpetas bastante definida y da muy poco espacio para modificarla.
 
 La estructura básica es esta:
 
@@ -116,4 +116,4 @@ Por ejemplo esta es la estructura de uno de los temas que tenemos en desarrollo 
 ## 7. Revisar los temas de Shopify
 En la misma nota, en lugar de empezar completamente desde cero, recomiendo mucho descargar los temas que tiene Shopify por defecto y capaz instalar en una tienda algunos de los que son gratuitos e inspeccionarlos. Adicionalmente a la documentación de Shopify que es bastante completa, revisar los temas nos permite ver la lógica de una tienda funcional.
 
-En la siguiente parte veremos como [instalar Theme kit](/instalando-theme-kit) con más detalle
+En la siguiente parte veremos cómo [instalar Theme kit](/instalando-theme-kit) con más detalle
