@@ -1,5 +1,6 @@
 ---
 date: 2021-01-29
+updated: 2021-01-31
 published: true
 title: Usando Gulp para desarrollo local con Shopify
 slug: /desarrollo-local-shopify-con-themekit-gulp
