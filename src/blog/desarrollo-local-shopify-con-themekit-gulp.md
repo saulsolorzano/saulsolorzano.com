@@ -1,5 +1,6 @@
 ---
 date: 2021-01-29
+updated: 2021-01-31
 published: true
 title: Usando Gulp para desarrollo local con Shopify
 slug: /desarrollo-local-shopify-con-themekit-gulp
@@ -58,7 +59,7 @@ const gulp      = require('gulp'),
  source         = require('vinyl-source-stream'),
  babelify       = require('babelify'),
  buffer         = require('vinyl-buffer'),
- browserSync    = require('browser-sync').create()
+ browserSync    = require('browser-sync').create(),
  YAML           = require('yaml'),
  fs             = require('fs'),
  gulpStylelint  = require('gulp-stylelint'),
@@ -178,7 +179,7 @@ function js(done) {
 
 function watch() {
 	const config = readConfig();
-	const shopifyTheme = argv.theme;
+	const shopifyTheme = argv.env;
 	browserSync.init({
 		proxy: `https://${config[shopifyTheme].store}?preview_theme_id=${config[shopifyTheme].theme_id}`,
 		files: '/var/tmp/theme_ready',
@@ -205,7 +206,18 @@ exports.watch = gulp.series(jsLint, js, scssLint, scss, watch);
 exports.production = gulp.series(setProductionEnvironment, scssLint, scss, jsLint, js);
 ```
 
+Aprovecho también de dejar acá el comando de `npm install` con todos los paquetes que se necesitan.
+
+```bash
+npm install --save-dev gulp node-sass gulp-sass gulp-postcss gulp-uglify stylelint stylelint-scss gulp-stylelint gulp-eslint gulp-rename autoprefixer through2 browserify vinyl-source-stream babelify vinyl-buffer browser-sync yaml glob event-stream minimist @babel/core @babel/preset-env
+```
+
 Como podemos ver usamos bastantes paquetes y hay algunos que solo los uso para que Theme Kit funcione de manera correcta con el Watch.
+
+## Antes de empezar
+Este gulpfile asume ciertas cosas, las dos son modificables fácilmente.
+- Que usarás las carpetas `styles` y `scripts`, en caso de que no sea así, modificar las rutas en `paths`
+- Que usarás linters, y si es así, espera los archivos de configuración, sino dará error. En caso de que no quieras usar ningún linter en la terminal porque lo usas en el editor puedes eliminar esas funciones.
 
 ## Un poco de orden con variables
 

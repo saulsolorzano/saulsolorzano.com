@@ -42,7 +42,12 @@ export default function BlogPost({ data, pageContext }) {
                 <span></span>
               )}
               <span className="block text-center text-gray-500">
-                Escrito el {post.frontmatter.date}
+                {post.frontmatter.date}
+                {post.frontmatter.updated != undefined && (
+                  <span className="italic inline-block pl-2 text-gray-400">
+                    {" "}Actualizado {post.frontmatter.updated}
+                  </span>
+                )}
               </span>
               {pageContext.next != null ? (
                 <Link
@@ -73,7 +78,8 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        date(formatString: "dddd DD [de] MMMM, YYYY", locale: "es")
+        date(formatString: "DD MMMM, YYYY", locale: "es")
+        updated(formatString: "DD MMMM, YYYY", locale: "es")
         title
         description
       }
