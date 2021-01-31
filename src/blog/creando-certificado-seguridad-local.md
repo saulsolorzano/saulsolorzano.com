@@ -15,7 +15,7 @@ type: "post"
 	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/desarrollo-local-shopify-con-themekit-gulp">4. Usando Gulp para desarrollo local con Shopify</a></span>
 </div>
 
-A pesar de que un certificado de seguridad local no es 100% necesario y puedes saltarte este paso si lo deseas, pero es bastante útil igual esta función, no solo para Theme Kit sino para cualquier otra cosa que necesite un certificado de seguridad local, esta es, por mucho, la manera más cómoda de tener certificados locales.
+A pesar de que un certificado de seguridad local no es 100% necesario y puedes saltarte este paso si lo deseas, es bastante útil igual esta función, no solo para Theme Kit sino para cualquier otra cosa que necesite un certificado de seguridad local, esta es, por mucho, la manera más cómoda de tener certificados locales.
 
 Los pasos están tomados de <a href="https://shopify.github.io/slate/docs/create-a-self-signed-ssl-certificate" target="_blank">Slate</a>, los pasos son muy sencillos
 
@@ -86,7 +86,7 @@ ssl-check
 ```
 Esta función guarda los certificados en la ruta `~/.localhost_ssl`.
 
-La primera vez que ejecutamos la función nos indicará que si usamos Firefox debemos correr unos pasos extras. Pero de resto, ya estamos listo con nuestra función.
+La primera vez que ejecutamos la función, nos indicará que, si usamos Firefox, debemos correr unos pasos extras. Pero de resto, ya estamos listo con nuestra función.
 
 ***
 

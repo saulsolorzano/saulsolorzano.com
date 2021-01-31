@@ -25,9 +25,9 @@ brew install themekit
 
 #### Un poco de historia primero
 
-Empezando el 2019 Shopify recomendaba usar <a href="https://shopify.github.io/slate/docs/about" target="_blank">Slate</a>, y a pesar de no ser una herramienta perfecta, hacía el trabajo local muy cómodo, es el equivalente a un `npm start` con create-react-app o `gatsby develop`. El problema es que en Marzo de 2019 Slate entró en modo de "Poco mantenimiento" diciendo que se tomarían 6 meses para evaluarlo y finalmente en Enero de 2020 declararon que no iban a soportar más Slate.
+Empezando el 2019 Shopify recomendaba usar <a href="https://shopify.github.io/slate/docs/about" target="_blank">Slate</a>, y a pesar de no ser una herramienta perfecta, hacía el trabajo local muy cómodo, es el equivalente a un `npm start` con create-react-app o `gatsby develop`. El problema es que en marzo de 2019 Slate entró en modo de "poco mantenimiento" diciendo que se tomarían 6 meses para evaluarlo y finalmente en enero de 2020 declararon que no iban a soportar más Slate.
 
-Así que la recomendación oficial de Shopify es usar <a href="https://shopify.github.io/themekit/" target="_blank">Theme Kit</a>, Slate realmente estaba construído encima de Theme Kit. El problema es que Theme Kit es muy diferente a Slate. Mientras Slate permite una experiencia de desarrollo sin prácticamente ninguna configuración, Theme Kit solo permite funciones básicas del tema, y a pesar de que tiene un comando de `watch` este sólo revisa que algún archivo se haya actualizado y lo sube a los servidores de Shopify, pero no compila, no transpila ni nada parecido, todo eso queda de parte de uno para implementar usando Webpack, Gulp o Grunt.
+Así que la recomendación oficial de Shopify es usar <a href="https://shopify.github.io/themekit/" target="_blank">Theme Kit</a>, Slate realmente estaba construido encima de Theme Kit. El problema es que Theme Kit es muy diferente a Slate. Mientras Slate permite una experiencia de desarrollo sin prácticamente ninguna configuración, Theme Kit solo permite funciones básicas del tema, y a pesar de que tiene un comando de `watch` este sólo revisa que algún archivo se haya actualizado y lo sube a los servidores de Shopify, pero no compila, no transpila ni nada parecido, todo eso queda de parte de uno para implementar usando Webpack, Gulp o Grunt.
 
 La idea de esta serie de posts es documentar un poco el proceso de creación de ese ambiente de desarrollo.
 
@@ -79,7 +79,7 @@ Como podrán ver, este archivo usa el formato YAML. YAML es bastante delicado, h
 
 **Importante: Dado que este archivo tiene una clave de acceso a nuestro tema por API la decisión de versionarlo o no es algo que se tendrá que decidir como equipo**
 
-### ¿De donde saco esa clave?
+### ¿De dónde saco esa clave?
 Shopify da la opción de crear aplicaciones de uso privado. Para crear una debes ir a la ventana de Aplicaciones y debajo del listado de aplicaciones vas a ver un texto que es muy fácil de perder.
 
 > ¿Estás trabajando con un desarrollador en la creación de tu tienda? Gestionar aplicaciones privadas
@@ -98,13 +98,13 @@ Se nos presentrá una pantalla para darle nombre a la aplicación y agregar nues
 
 ![aplicacion-nombre-permisos](../img/aplicacion-nombre-permisos.png)
 
-Acá es importante darle click donde dice "**Mostrar permisos de la API del panel de control inactivos**".
+Acá es importante darle clic donde dice "**Mostrar permisos de la API del panel de control inactivos**".
 
-Como el nombre lo dice, esto desplegará todos los posibles permisos que puede tener la API. Esta parte es delicada 
+Como el nombre lo dice, esto desplegará todos los posibles permisos que puede tener la API. Esta parte es delicada.
 
 <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/giLHkdUIBi3qQ3pJEp" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/neurads-omg-app-yolanda-giLHkdUIBi3qQ3pJEp">via GIPHY</a></p>
 
-En mi opinión, lo mejor es que esta Aplicación solo tenga permiso para gestionar los Temas ya que Theme Kit realmente no se necesita nada más, si en un momento se llega a necesitar más permisos para otra cosa, lo mejor es crar otra app con los permisos adecuados. 
+En mi opinión, lo mejor es que esta Aplicación solo tenga permiso para gestionar los Temas, ya que Theme Kit realmente no se necesita nada más, si en un momento se llega a necesitar más permisos para otra cosa, lo mejor es crear otra app con los permisos adecuados. 
 
 ![api-theme.png](../img/api-theme.png)
 
