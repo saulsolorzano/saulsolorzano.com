@@ -19,7 +19,7 @@ type: "post"
 **TDLR**: Si quieres trabajar localmente con tu tema de Shopify, debes tener instalado [Theme Kit](/instalando-theme-kit) y Gulp usando el [Gulpfile](#gulpfile) que se encuentra más abajo
 ***
 
-Cuando es está trabajando con desarrollo local de un tema de Shopify, lo más recomendado es trabajar con Theme Kit, el problema es que Theme Kit es bastante básico en su comportamiento. Así que adicionalmente a las cosas más normales en Gulp como SCSS y JavaScript, debemos hacer unos pasos extras para que funcione bien con nuestra tienda de Shopify.
+Cuando se está trabajando con desarrollo local de un tema de Shopify, lo más recomendado es trabajar con Theme Kit, el problema es que Theme Kit es bastante básico en su comportamiento. Así que, adicionalmente a las cosas más normales en Gulp como SCSS y JavaScript, debemos hacer unos pasos extras para que funcione bien con nuestra tienda de Shopify.
 
 La lista de tareas se ve así:
 
@@ -35,14 +35,14 @@ La lista de tareas se ve así:
 ![artem-beliaikin-JsB3j_d4Fnk-unsplash.jpg](../img/artem-beliaikin-JsB3j_d4Fnk-unsplash.jpg)
 <span class="text-sm text-center block mt-4">Photo by <a href="https://unsplash.com/@belart84?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Artem Beliaikin</a> on <a href="https://unsplash.com/s/photos/plastic-cup?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
-Lo más probable es que alguna vez hayas usado Gulp, pero capaz nunca te ha tocado configurarlo desde cero o crear un Gulpfile, si es así, la idea de este artículo es explicarte los pasos que se tomaron dado que lo más probable es que tengas que modificarlo para reflejar tu ambiente de desarrollo.
+Lo más probable es que alguna vez hayas usado Gulp, pero capaz nunca te haya tocado configurarlo desde cero o crear un Gulpfile, si es así, la idea de este artículo es explicarte los pasos que se tomaron, dado que lo más probable es que tengas que modificarlo para reflejar tu ambiente de desarrollo.
 
 #### ¿Por qué usar Gulp y no Webpack?
-Creo que es justo decir que webpack es la opción más popular entre los dos, dado que muchos frameworks usan webpack, y aunque muchas veces son intercambiables, la verdad es que son herramientas diferentes. Webpack es un "empaquetador (bundler)" cuya principal función es trabajar con JavaScript, todo se hace con JavaScript, en cambio Gulp es un corredor de tareas que expone una API bastante sencilla para trabajar. 
+Creo que es justo decir que webpack es la opción más popular entre los dos, debido a que muchos frameworks usan webpack, y aunque muchas veces son intercambiables, la verdad es que son herramientas diferentes. Webpack es un "empaquetador (bundler)" cuya principal función es trabajar con JavaScript, todo se hace con JavaScript, en cambio Gulp es un corredor de tareas que expone una API bastante sencilla para trabajar. 
 
-Dado que no estamos trabajando con un framework de JavaScript, usar Gulp tiene mucho más sentido.
+Cpmo no estamos trabajando con un framework de JavaScript, usar Gulp tiene mucho más sentido.
 
-Primero vamos a ver el Gulpfile completo para los que solo les interese eso y debajo emplico todo más detallado.
+Primero, vamos a ver el Gulpfile completo para los que solo les interese eso y debajo emplico todo más detallado.
 
 ##### [Gulpfile](#gulpfile)
 
@@ -223,13 +223,13 @@ Este gulpfile asume ciertas cosas, las dos son modificables fácilmente.
 
 Después de declarar todos los paquetes, vamos a ver dos variables `config` donde definimos nuestro ambiente por defecto como `dev` y definimos un `delayTime: 1200` que usaremos más adelante en el browserSync.
 
-Después vemos `paths` que son simplemente las rutas de todos los archivos que necesitaremos. La única que debería parecer rara es la sección de los SSL, esta es la ruta donde los [certificados de seguridad](/creando-certificado-seguridad-local) son creados.
+Después vemos `paths`, que son simplemente las rutas de todos los archivos que necesitaremos. La única que debería parecer rara es la sección de los SSL, esta es la ruta donde los [certificados de seguridad](/creando-certificado-seguridad-local) son creados.
 
 
 
 ### Haciendo las paces con Theme Kit
 
-Vamos a enfocarnos primero en las cosas que necesitamos para trabajar bien con Theme Kit ya que el resto es bastante estandar si alguna vez has configurado un proyecto de Gulp.
+Vamos a enfocarnos primero en las cosas que necesitamos para trabajar bien con Theme Kit, ya que el resto es bastante estandar si alguna vez has configurado un proyecto de Gulp.
 
 Cuando mi compañero [José](https://github.com/josehollow24) creó la primera versión de este Gulpfile, uno de los problemas que tuvo es el problema de sincronización entre los watchers y el `theme watch` de Theme Kit para subir los archivos a Shopify. Después de buscar bastante, resulta que el problema es cómo funcionan los watchers, cuando corren, estos no actualizan la fecha de modificación del archivo, por lo menos no como uno pensaría, y el watcher de Theme Kit usa esa fecha para saber si el archivo a cambiado o no, así que lo primero que debemos hacer es implementar esta función
 
@@ -247,11 +247,11 @@ const touch = () => t2.obj( function( file, enc, cb ) {
 
 ```
 
-Básicamente esta forza el tiempo de actualización del archivo para que Theme Kit lo detecte
+Básicamente, esta fuerza el tiempo de actualización del archivo para que Theme Kit lo detecte
 
 #### Ambiente de desarrollo
 
-Ya expliqué con [detalle anteriormente](/instalando-theme-kit) como funciona el archivo `config.yml` dentro del contexto de Theme Kit. Dado que tenemos que hacer un browsersync remoto, necesitamos saber la dirección para el proxy, para esto usaremos un parser de Yaml
+Ya expliqué con [detalle anteriormente](/instalando-theme-kit) cómo funciona el archivo `config.yml` dentro del contexto de Theme Kit. Dado que tenemos que hacer un browsersync remoto, necesitamos saber la dirección para el proxy, para esto usaremos un parser de Yaml
 
 ```javascript
 /**
@@ -272,7 +272,7 @@ Cuando uno hace un `watch` o un `deploy` en Theme Kit tiene la siguiente estruct
 theme watch --env=[Ambiente]
 theme deploy --env=[Ambiente]
 ```
-Lo ideal es usar la misma estructura en gulp por comodidad y tranquilidad mental.
+Lo ideal es usar la misma estructura en Gulp por comodidad y tranquilidad mental.
 
 ```bash
 gulp watch --env=[Ambiente]
@@ -285,11 +285,11 @@ Así que haciendo uso de minimalist para leer ese `--env=[Ambiente]` podremos ha
 
 Vamos a armar nuestro watcher y para esto necesitamos tener el browserSync configurado correctamente.
 
-Este es uno de los paquetes más conocidos para evitar tener que refrescar el navegador a mano. Es súper cómodo cuando se está trabajando localmente poder guardar en tu editor y que el navegador se actualice de manera automática pudiendo así ver los cambios que hiciste.
+Este es uno de los paquetes más conocidos para evitar tener que refrescar el navegador a mano. Es súper cómodo cuando se está trabajando localmente poder guardar en tu editor y que el navegador se actualice de manera automática, pudiendo así ver los cambios que hiciste.
 
-Lamentablemente no podremos lograr ese efecto de manera automática, esto es porque lo que realmente pasará con nuestro watch es que una vez se compilen nuestros recursos como el CSS y el JavaScript, se deben subir primero a Shopify y después deberemos refrescar el navegador para ver los cambios. Aquí es donde usamos el `delayTime` que había comentado anteriormente.
+Lamentablemente, no podremos lograr ese efecto de manera automática, esto es porque lo que realmente pasará con nuestro watch es que una vez se compilen nuestros recursos como el CSS y el JavaScript, se deben subir primero a Shopify y después deberemos refrescar el navegador para ver los cambios. Aquí es donde usamos el `delayTime` que había comentado anteriormente.
 
-El otro problema es que Theme Kit no dispara ningún evento cuando se termina de subir un archivo, así que el único recurso que nos queda es tratar de llegar a un estimado, así llegue a los 1200, pero esto debe ser adaptado, si tienes una computadora más lenta, probablemente sería buena idea incrementarlo, posiblemente en una versión futura lo deje como un parámetro que se pase por el comando, algo como
+El otro problema es que Theme Kit no dispara ningún evento cuando se termina de subir un archivo, así que el único recurso que nos queda es tratar de llegar a un estimado, así llegue a los 1200, pero esto debe ser adaptado, si tienes una computadora más lenta, probablemente sería buena idea incrementarlo, posiblemente en una versión futura lo deje como un parámetro que se pase por el comando, algo como:
 
 ```bash
 gulp watch --env=[ambiente] --delay=1200
@@ -339,7 +339,7 @@ Otra cosa importante es el archivo que usamos para notificar con el Theme Kit.
 
 ### SCSS a CSS
 
-Esta es la parte más fácil y estándar. Adicionalmente la compilación de SCSS a CSS, decidimos implementar un linter ya que somos dos personas actualmente modificando el código, con más en el camino pronto y tenemos tres tiendas ya de Shopify, así que mantener un mismo estándar de programación es bastante cómodo.
+Esta es la parte más fácil y estándar. Adicionalmente, la compilación de SCSS a CSS, decidimos implementar un linter, porque actualmente somos dos personas actualmente modificando el código, con más en el camino pronto y tenemos tres tiendas ya de Shopify, así que mantener un mismo estándar de programación es bastante cómodo.
 
 La primera función `scssLint()` es la que se encarga de eso, la segunda función `scss()` es la que compila el SCSS a CSS, notarán la función `touch()`
 
