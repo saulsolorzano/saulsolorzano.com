@@ -1,5 +1,6 @@
 ---
 date: 2021-01-28
+updated: 2021-02-03
 published: true
 title: Creando certificado de seguridad local
 slug: /creando-certificado-seguridad-local
@@ -86,7 +87,50 @@ ssl-check
 ```
 Esta función guarda los certificados en la ruta `~/.localhost_ssl`.
 
-La primera vez que ejecutamos la función, nos indicará que, si usamos Firefox, debemos correr unos pasos extras. Pero de resto, ya estamos listo con nuestra función.
+La primera vez que ejecutamos la función veremos algo parecido a esto:
+
+```bash
+🛑  Couldn\'t find a Slate SSL certificate:
+Generating a new Slate SSL certificate...
+
+Created a new local CA 💥
+Note: the local CA is not installed in the system trust store.
+Note: the local CA is not installed in the Firefox trust store.
+Run "mkcert -install" for certificates to be trusted automatically ⚠️
+
+Created a new certificate valid for the following names 📜
+ - "localhost"
+ - "192.168.100.21"
+
+The certificate is at "./localhost+1.pem" and the key at "./localhost+1-key.pem" ✅
+
+It will expire on 3 May 2023 🗓
+```
+
+Dado que es la primera vez que ejecuto la función en la computadora me indicará que si quiero usar el certificado en Firefox debo ejecutar `mkcert -install` también. 
+
+Una vez ejecutada esa función, dependiendo de tu configuración local puede que veas este mensaje:
+
+```bash
+The local CA is now installed in the system trust store! ⚡️
+Warning: "certutil" is not available, so the CA can't be automatically installed in Firefox! ⚠️
+Install "certutil" with "brew install nss" and re-run "mkcert -install" 👈
+```
+
+Que nos indica que hace falta un paquete primero, así que seguimos los pasos:
+
+```bash
+brew install nss
+mkcert -install
+```
+
+Después de todo esto veremos
+```bash
+→ mkcert -install
+The local CA is already installed in the system trust store! 👍
+The local CA is now installed in the Firefox trust store (requires browser restart)! 🦊
+```
+Indicándonos que estamos listos.
 
 ***
 
