@@ -1,5 +1,6 @@
 ---
 date: 2021-01-26
+updated: 2021-02-16
 published: true
 title: Recomendaciones para trabajar con temas de Shopify
 slug: /recomendaciones-trabajo-con-shopify
@@ -116,4 +117,8 @@ Por ejemplo esta es la estructura de uno de los temas que tenemos en desarrollo 
 ## 7. Revisar los temas de Shopify
 En la misma nota, en lugar de empezar completamente desde cero, recomiendo mucho descargar los temas que tiene Shopify por defecto y capaz instalar en una tienda algunos de los que son gratuitos e inspeccionarlos. Adicionalmente a la documentación de Shopify que es bastante completa, revisar los temas nos permite ver la lógica de una tienda funcional.
 
-En la siguiente parte veremos cómo [instalar Theme kit](/instalando-theme-kit) con más detalle
+## 8. Crear una nomenclatura y mantenerla.
+Con esto me refiero específicamente a la carpeta `snippets`, pero puede aplicar a cualquier otro lado de tu código. En la carpeta `snippets` no podemos usar subcarpetas, que sería ideal para ordenar los snippets del home, página de producto, cuenta de usuario y demás, entonces es buena idea trabajar con prefijos en los productos. Sí hay varios snippets para la página de producto que todos empiecen con `producto-` como `producto-precio.liquid` `producto-imagen.liquid`. Además que cualquier IDE los ordenará dentro de la carpeta, será mucho más fácil saber el propósito de cada uno.
+
+
+En la siguiente parte veremos cómo [instalar Theme kit](/instalando-theme-kit) con más detalle.
