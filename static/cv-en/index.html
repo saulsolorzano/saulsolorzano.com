@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Resume Saúl Solórzano</title>
+	<link href="http://saulsolorzano.com/favicon.png" rel="icon" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,700|Rambla:400,700" rel="stylesheet">
+	<style>
+		:root {
+			--main-bg: #3d474c;
+			--details: #f1f1f1;
+			--copy: #414141;
+			--main: dodgerblue;
+			--secondary: rebeccapurple;
+			--headings: steelblue;
+		}
+		html {
+			background-color: var(--main-bg);
+		}
+		html, body {
+			font-family: 'Rambla', sans-serif;
+		}
+		/*Estilos en base al CV de Lea http://lea.verou.me/cv.html*/
+		body {
+			box-sizing: border-box;
+			background-color: white;
+			max-width: 70em;
+			width: 100%;
+			margin: 1em auto;
+			padding: 1em 10%;
+			font-size: 16px;
+			box-shadow: 1px 1px 5px 2px rgba(0,0,0,.3);
+		}
+		header {
+			padding: 2em 1em 1em;
+			text-align: center;
+			border-bottom: 1px solid var(--details);
+		}
+		.links {
+			margin-top: 5px;
+		}
+		.links a {
+			margin: 0 5px;
+		}
+		.job {
+			margin-bottom: 20px;
+		}
+		a {
+			color: var(--main);
+			transition: 400ms ease;
+		}
+		a:hover {
+			color: var(--secondary);
+		}
+		h1 {
+			color: var(--headings);
+			font-size: 3.2em;
+			line-height: 1em;
+			margin: 0;
+		}
+		h2 {
+			font-size: 2em;
+			color: var(--headings);
+		}
+		h3 {
+			font-size: 1.5em;
+			margin: 0;
+			color: #777;
+		}
+		h4 {
+			font-size: 1.4em;
+			margin: 0;
+			color: black;
+		}
+		h5 {
+			font-size: 1.2em;
+			margin: 0;
+			color: #777;
+		}
+		h5 a {
+			color: #777;
+			text-decoration: none;
+		}
+		p {
+			font-size: 1.1em;
+			color: var(--copy);
+			margin: .5em 0;
+			font-family: 'Lato', sans-serif;
+		}
+		p.date {
+			font-size: .7em;
+			font-family: 'Rambla', sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: var(--headings);
+		}
+		ul {
+			font-family: 'Lato', sans-serif;
+			padding: 0;
+			list-style: disc;
+		}
+		ul li {
+			color: var(--copy);
+			margin: .4em 0;
+		}
+		ul li strong {
+			color: #444;
+		}
+		@media (max-width: 750px) {
+			body {
+				width: 90%;
+				padding: 1em 5%;
+				font-size: 14px;
+			}
+			header {
+				padding: 1em;
+			}
+			h1 {
+				font-size: 2.5em;
+			}
+			h3 {
+				font-size: 1.2em;
+			}
+			ul {
+				list-style-position: inside;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Saúl Solórzano</h1>
+		<h3>Senior Front-End Developer</h3>
+		<div class="links">
+			<a href="http://saulsolorzano.com">Web</a>
+			<a href="http://twitter.com/saulsolorzano" target="_blank">Twitter</a>
+			<a href="http://github.com/saulsolorzano" target="_blank">GitHub</a>
+			<a href="mailto:hola@saulsolorzano.com">email</a>
+		</div><!--/.links-->
+	</header>
+	<div id="summary">
+		<h2>About me</h2>
+		<p>I'm currently a Lead Developer working in a retail business, my main focus is Shopify Themes and Apps</p>
+		<p>I have been working with Shopify every day for the past two years. Outside of work I love spending time with my 10 month old puppy, cooking and gardening.</p>
+	</div><!-- /#summary -->
+	<div id="work-experience">
+		<h2>Work Experience</h2>
+		<div class="job">
+			<h4>Lead Developer</h4>
+			<h5>Ventis</h5>
+			<p class="date">June 2019 - Present</p>
+			<p>This is my most challenging role yet. I lead a small team of 3 developers. My responsabilities include defining work projects for our teams. Keeping our code clean, I'm the one who's keeping with the changes so our stores are always updated. We work on a couple of internal shopify Apps using Polaris.</p>
+			<p><strong>Projects:</strong></p>
+			<ul>
+				<li><a target="_blank" href="https://ankerstore.cl/">Ankerstore Chile</a></li>
+				<li><a target="_blank" href="https://ankershop.mx/">Ankerstore México</a></li>
+				<li><a target="_blank" href="https://instantstore.cl/">InstantStore Chile</a></li>
+			</ul>
+		</div><!-- /.job -->
+		<div class="job">
+			<h4>Senior Front-End Developer</h4>
+			<h5><a href="https://dive.cl/" target="_blank">Agencia Creativa Dive</a></h5>
+			<p class="date">February 2018 - June 2019</p>
+			<p>During my stay in DIVE. I was able to explore new areas in web development. Specially working with Vue for doing SPAs. I was also able to work a lot with Google Analytics and Google Tag Manager, which I found super interesting.</p>
+		</div><!-- /.job -->
+		<div class="job">
+			<h4>Senior Front-End developer</h4>
+			<h5><a href="https://reactor.cl/" target="_blank">Agencia Digital Reactor</a></h5>
+			<p class="date">August 2014 - February 2018</p>
+			<p>Reactor was my first work here in Chile. It was a really good challenge. It was first time working with another another front-end developers. I learnt a lot working with clients in different industries.</p>
+		</div><!-- /.job -->
+		<div class="job">
+			<h4>Partner | Front End</h4>
+			<h5><a href="http://jps.com.ve" target="_blank">JPS Web Design</a></h5>
+			<p class="date">February 2009 - August 2014</p>
+			<p>In 2009 I founded, along with two friends, a small web design agency. This was my start with serious development. It was when web standards where being defined. It was around the time media queries where starting to be used. I was an awesome time to learn.</p>
+		</div><!-- /.job -->
+	</div><!--/.work-experience-->
+	<div id="skills">
+		<h2>Skill set</h2>
+		<h5>Coding</h5>
+		<ul>
+			<li><strong>CSS/SCSS</strong> advanced</li>
+			<li><strong>HTML5/APIs</strong> advanced</li>
+			<li><strong>JavaScript</strong> I wouldn't say advanced because JavaScript is a big universe, but I feel very confident with it.</li>
+			<li><strong>React</strong> I have been using it for production code for about a year new. But I feel I need to learn so much more still.</li>
+			<li><strong>Laravel</strong> I coded a big internal app for invoices for our shopify stores with Laravel.</li>
+			<li><strong>GIT</strong> Without GIT life wouldn't be the same.</li>
+		</ul>
+		<h5>Design</h5>
+		<ul>
+			<li><strong>Zeplin</strong> We use it everyday. I think it's still the best way to connect designers with coders.</li>
+			<li><strong>Invision</strong> It's awesome for collaborating and showing design to all members of the organization and get their input.</li>
+		</ul>
+	</div><!--/.skills-->
+	<div id="awards">
+		<h2>Awards</h2>
+		<ul>
+			<li><strong>Effie</strong> - Chilean award for a SPA for national football team | Freelance</li>
+		</ul>
+	</div><!--/#awards-->
+	<div id="languages">
+		<h2>Languages</h2>
+		<ul>
+			<li><strong>Spanish:</strong> Native</li>
+			<li><strong>English:</strong> Advanced</li>
+			<li><strong>French:</strong> Beginner</li>
+		</ul>
+	</div><!--/#languages-->
+</body>
+</html>
