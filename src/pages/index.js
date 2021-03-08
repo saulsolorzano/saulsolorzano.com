@@ -1,15 +1,14 @@
-import { Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 import React from "react";
-import { graphql } from "gatsby";
-import SEO from "../components/seo";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const IndexPage = ({ data }) => {
   const { blog } = data;
   return (
     <Layout>
       <SEO />
-      <div className="text-gray-800 mt-10">
+      <div className="text-gray-800 mt-10 dark:text-gray-100">
         <div className="p-2 divide-gray-200 divide-y-2">
           {blog.posts.map((post) => (
             <article
@@ -17,7 +16,7 @@ const IndexPage = ({ data }) => {
               className="py-6 xl:grid xl:grid-cols-8 xl:items-baseline"
             >
               {post.frontmatter.published}
-              <span className="text-gray-500 text-base block m-0 col-span-2 leading-10">
+              <span className="text-gray-500 text-base block m-0 col-span-2 leading-10 dark:text-gray-200">
                 Escrito el {post.frontmatter.date}
               </span>
               <div className="col-span-6 space-y-3">
@@ -49,20 +48,20 @@ const IndexPage = ({ data }) => {
                   {post.frontmatter.externalLink == undefined && (
                     <Link
                       to={post.fields.slug}
-                      className="text-gray-800 hover:text-yellow-700 border-white border-b-2  hover:border-yellow-700"
+                      className="text-gray-800 hover:text-yellow-700 border-white border-b-2  hover:border-yellow-700 dark:text-gray-200 dark:border-dark dark:hover:text-dark-light dark:hover:border-dark-light"
                     >
                       {post.frontmatter.title}
                     </Link>
                   )}
                 </h2>
-                <div className="prose text-base font-copy text-gray-600">
+                <div className="prose text-base font-copy text-gray-600 dark:text-gray-200">
                   <p>{post.frontmatter.description}</p>
                 </div>
                 {post.frontmatter.externalLink == undefined && (
                   <div>
                     <Link
                       to={post.fields.slug}
-                      className="text-xl border-white border-b-2 text-yellow-700 hover:border-yellow-700"
+                      className="text-xl border-white border-b-2 dark:border-dark text-yellow-700 hover:border-yellow-700 dark:text-dark-light dark:hover:border-dark-light"
                     >
                       Leer todo →
                     </Link>

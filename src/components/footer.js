@@ -6,17 +6,17 @@ const currentYear = () => {
 
 const Footer = () => (
   <footer
-    className="px-2 md:mx-4 md:px-10 py-6 border-t-2 mt-10 flex items-center justify-between bg-white border-gray-400"
+    className="px-2 md:mx-4 md:px-10 py-6 border-t-2 mt-10 flex items-center justify-between bg-white border-gray-400 dark:bg-dark dark:border-gray-900"
     role="contentinfo"
   >
-    <p className="text-gray-600 text-sm">
+    <p className="text-gray-600 dark:text-gray-200 text-sm">
       &copy; 2014 - {currentYear()} Saúl Solórzano. Potenciado con
-      <a href="https://www.gatsbyjs.com/"> Gatsby</a>
+      <a href="https://www.gatsbyjs.com/" className="hover:text-yellow-700 dark:hover:text-dark-light"> Gatsby</a>
       <br />
       Hospedado en{" "}
       <a
         href="http://www.netlify.com/"
-        className="text-gray-600 hover:text-yellow-700"
+        className="text-gray-600 dark:text-gray-200 hover:text-yellow-700 dark:hover:text-dark-light"
       >
         Netlify
       </a>
@@ -24,7 +24,7 @@ const Footer = () => (
     <nav className="flex space-x-4">
       <a href="http://twitter.com/saulsolorzano">
         <svg
-          className="h-4 w-4 text-gray-400 hover:text-yellow-700"
+          className="h-4 w-4 text-gray-400 hover:text-yellow-700 dark:text-gray-200 dark:hover:text-dark-light"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 612 612"
@@ -34,7 +34,7 @@ const Footer = () => (
       </a>
       <a href="https://github.com/saulsolorzano">
         <svg
-          className="h-4 w-4 text-gray-400 hover:text-yellow-700"
+          className="h-4 w-4 text-gray-400 hover:text-yellow-700 dark:text-gray-200 dark:hover:text-dark-light"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           width="512"
@@ -46,7 +46,7 @@ const Footer = () => (
       </a>
       <a href="mailto:hola@saulsolorzano.com">
         <svg
-          className="h-4 w-4 text-gray-400 hover:text-yellow-700"
+          className="h-4 w-4 text-gray-400 hover:text-yellow-700 dark:text-gray-200 dark:hover:text-dark-light"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           width="504.212"

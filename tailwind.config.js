@@ -5,6 +5,7 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
+  darkMode: 'class',
   purge: [
     "./src/**/*.js",
     "./src/**/*.jsx",
@@ -23,12 +24,17 @@ module.exports = {
       violet: colors.violet,
       yellow: colors.amber,
       blue: colors.lightBlue,
+      dark: {
+        light: '#eebbc3',
+        border: '#404660',
+        DEFAULT: '#292d3e',
+      }
+    },
+    backgroundSize: {
+      'header': '80% 100%'
     },
     extend: {
-      screens: {
-        dark: { raw: "(prefers-color-scheme: dark)" },
-      },
-      typography: {
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             a: {
@@ -65,14 +71,73 @@ module.exports = {
             },
           },
         },
-      },
+        dark: {
+          css: {
+            color: theme('colors.gray.200'),
+            strong: {
+              color: theme('colors.gray.200'),
+            },
+            'ol > li::before': {
+              color: theme('colors.gray.400'),
+            },
+            'ul > li::before': {
+              backgroundColor: theme('colors.gray.400'),
+            },
+            hr: {
+              borderColor: theme('colors.gray.200'),
+            },
+            blockquote: {
+              color: theme('colors.gray.200'),
+              borderLeftColor: theme('colors.gray.400'),
+            },
+            ul: {
+              color: theme('colors.gray.200'),
+            },
+            ol: {
+              color: theme('colors.gray.200'),
+            },
+            p: {
+              color: theme('colors.gray.200'),
+            },
+            h1: {
+              color: theme('colors.gray.200'),
+            },
+            h2: {
+              color: theme('colors.gray.200'),
+            },
+            h3: {
+              color: theme('colors.gray.200'),
+            },
+            h4: {
+              color: theme('colors.gray.200'),
+            },
+            a: {
+              color: "#eebbc3 !important",
+              "&:hover": {
+                color: "#c19199 !important",
+              },
+            },
+            pre: {
+              backgroundColor: theme('colors.gray.800'),
+              "box-shadow": "4px 4px 0 #eebbc3",
+            },
+          }
+        }
+      }),
       colors: {
         "dark-copy": "#fffffe",
         highlight: "#8B5CF6",
         "light-highlight": "#fffffe",
       },
+      backgroundImage: theme => ({
+        'header-pattern': 'linear-gradient(#0135d000 70%,rgba(180, 83, 9, 0.29) 70%)'
+      })
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      typography: ['dark']
+    }
+  },
   plugins: [require("@tailwindcss/typography")],
 };

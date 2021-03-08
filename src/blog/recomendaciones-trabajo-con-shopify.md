@@ -8,12 +8,12 @@ description: "Shopify cada vez es más relevante en el mundo del e-commerce, es 
 type: "post"
 ---
 
-<div class="bg-gray-50 w-10/12 m-auto series-index">
-	<span class="font-bold m-0 py-2 px-5 block text-blue-700">Desarrollo de temas con Shopify</span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold"><a href="/recomendaciones-trabajo-con-shopify" class="current">1. Recomendaciones para trabajar con temas de Shopify</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold"><a href="/instalando-theme-kit">2. Instalando Theme Kit</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold"><a href="/creando-certificado-seguridad-local">3. Creando certificado de seguridad local</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold"><a href="/desarrollo-local-shopify-con-themekit-gulp">4. Usando Gulp para desarrollo local con Shopify</a></span>
+<div class="bg-gray-100 w-10/12 m-auto border series-index dark:bg-gray-800 dark:border-gray-700">
+	<span class="font-bold m-0 py-2 px-5 block text-blue-700 dark:text-blue-500">Desarrollo de temas con Shopify</span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold dark:border-gray-600"><a href="/recomendaciones-trabajo-con-shopify" class="current">1. Recomendaciones para trabajar con temas de Shopify</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold dark:border-gray-600"><a href="/instalando-theme-kit">2. Instalando Theme Kit</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold dark:border-gray-600"><a href="/creando-certificado-seguridad-local">3. Creando certificado de seguridad local</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold dark:border-gray-600"><a href="/desarrollo-local-shopify-con-themekit-gulp">4. Usando Gulp para desarrollo local con Shopify</a></span>
 </div>
 
 Shopify se hace cada vez más relevante en el mercado actual. En el último Black Friday/Cyber Monday Shopify procesó un total de 5.1 mil millones de dólares en ventas; pese a que en Chile y el resto de Latinoamérica está un poco más retrasada su adopción, está avanzando a pasos agigantados. Por esto es que cada vez es más relevante, para nosotros como programadores tener una buena base del trabajo en Shopify. Tengo ya un poco más de dos años trabajando activamente con Shopify, casi todos los días toco código de [alguna](https://ankerstore.cl/) de [nuestras]((https://instantstore.cl/)) [tiendas](https://conairstore.cl/).

@@ -7,12 +7,12 @@ description: "Theme Kit es la herramienta de Shopify para el trabajo local, en e
 type: "post"
 ---
 
-<div class="bg-gray-100 w-10/12 m-auto border series-index">
-	<span class="font-bold m-0 py-1 px-5 block text-blue-700">Desarrollo de temas con Shopify</span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/recomendaciones-trabajo-con-shopify">1. Recomendaciones para trabajar con temas de Shopify</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/instalando-theme-kit" class="current">2. Instalando Theme Kit</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/creando-certificado-seguridad-local">3. Creando certificado de seguridad local</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/desarrollo-local-shopify-con-themekit-gulp">4. Usando Gulp para desarrollo local con Shopify</a></span>
+<div class="bg-gray-100 w-10/12 m-auto border series-index dark:bg-gray-800 dark:border-gray-700">
+	<span class="font-bold m-0 py-1 px-5 block text-blue-700 dark:text-blue-500">Desarrollo de temas con Shopify</span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold dark:border-gray-600"><a href="/recomendaciones-trabajo-con-shopify">1. Recomendaciones para trabajar con temas de Shopify</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold dark:border-gray-600"><a href="/instalando-theme-kit" class="current">2. Instalando Theme Kit</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold dark:border-gray-600"><a href="/creando-certificado-seguridad-local">3. Creando certificado de seguridad local</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold dark:border-gray-600"><a href="/desarrollo-local-shopify-con-themekit-gulp">4. Usando Gulp para desarrollo local con Shopify</a></span>
 </div>
 
 TL;DR: Haz click <a href="https://shopify.github.io/themekit/" target="_blank">acá</a> para seguir las instrucciones y leer toda la documentación. Si usas Mac OS y usas <a href="https://brew.sh/" target="_blank">homebrew</a> aquí están las instrucciones:
