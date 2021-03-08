@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO />
       <div className="text-gray-800 mt-10 dark:text-gray-100">
-        <div className="p-2 divide-gray-200 divide-y-2">
+        <div className="p-2 divide-gray-200 divide-y-2 dark:divide-gray-600">
           {blog.posts.map((post) => (
             <article
               key={post.id}

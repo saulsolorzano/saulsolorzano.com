@@ -2,7 +2,13 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle }) => {
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+  return (
   <header className="px-2 md:mx-4 md:px-10 py-2 flex items-center justify-between bg-white dark:bg-dark">
     <h1 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 leading-tight hover:text-yellow-700">
       <Link to="/"><span className="bg-bottom bg-no-repeat bg-header bg-header-pattern">{siteTitle}</span></Link>
@@ -29,7 +35,8 @@ const Header = ({ siteTitle }) => (
       </Link> */}
     </nav>
   </header>
-);
+
+)};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
