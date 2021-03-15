@@ -16,16 +16,16 @@ const Header = ({ siteTitle }) => {
           Full-Stack Developer
         </small>
       </h1>
-      <nav className="space-x-4 flex items-center">
+      <nav className="md:space-x-4 grid grid-cols-2 grid-rows-2 md:flex items-center">
         <Link
           to="/"
-          className="text-gray-900 text-base hover:text-violet-500 dark:text-gray-100 dark:hover:text-dark-light"
+          className="text-gray-900 text-base hover:text-violet-500 dark:text-gray-100 dark:hover:text-dark-light col-start-1 col-end-2 md:col-auto md:row-auto row-start-2 row-end-3"
         >
           Home
         </Link>
         <Link
           to="/acerca"
-          className="text-gray-900 text-base hover:text-violet-500 dark:text-gray-100 dark:hover:text-dark-light"
+          className="text-gray-900 text-base hover:text-violet-500 dark:text-gray-100 dark:hover:text-dark-light col-start-2 col-end-3 md:col-auto md:row-auto row-start-2 row-end-3"
         >
           Acerca
         </Link>
