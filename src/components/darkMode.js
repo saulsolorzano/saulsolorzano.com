@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 
 const DarkMode = () => {
+  const windowGlobal = typeof window !== "undefined" && window;
   const [checked, setChecked] = useState(
-    localStorage.theme === "dark" ? true : false
+    windowGlobal && windowGlobal.localStorage.theme === "dark" ? true : false
   );
   const handleClick = () => {
     setChecked(!checked);
   };
   if (checked === true) {
-    localStorage.theme = "dark";
+    windowGlobal ? (windowGlobal.localStorage.theme = "dark") : "";
   } else {
-    localStorage.theme = "light";
+    windowGlobal ? (windowGlobal.localStorage.theme = "light") : "";
   }
   if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
+    (windowGlobal && windowGlobal.localStorage.theme === "dark") ||
+    (!(windowGlobal && "theme" in windowGlobal.localStorage) &&
+      windowGlobal &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
-    localStorage.theme = "dark";
-    document.documentElement.classList.add("dark");
+    windowGlobal ? (windowGlobal.localStorage.theme = "dark") : "";
+    windowGlobal && document.documentElement.classList.add("dark");
   } else {
-    console.log("modo claro");
-    document.documentElement.classList.remove("dark");
+    windowGlobal && document.documentElement.classList.remove("dark");
   }
   return (
     <div className="absolute md:relative top-6 right-2 md:top-auto md:right-auto">
