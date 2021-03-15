@@ -8,7 +8,7 @@ description: "Shopify cada vez es más relevante en el mundo del e-commerce, es 
 type: "post"
 ---
 
-<div class="bg-gray-100 w-10/12 m-auto border series-index dark:bg-gray-800 dark:border-gray-700">
+<div class="bg-gray-100 w-full md:w-10/12 m-auto border series-index dark:bg-gray-800 dark:border-gray-700">
 	<span class="font-bold m-0 py-2 px-5 block text-blue-700 dark:text-blue-500">Desarrollo de temas con Shopify</span>
 	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold dark:border-gray-600"><a href="/recomendaciones-trabajo-con-shopify" class="current">1. Recomendaciones para trabajar con temas de Shopify</a></span>
 	<span class="block m-0 py-1 px-5 border-t border-gray-200 font-bold dark:border-gray-600"><a href="/instalando-theme-kit">2. Instalando Theme Kit</a></span>

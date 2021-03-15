@@ -8,17 +8,17 @@ const AboutPage = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <div className="text-gray-800 mt-10 dark:text-gray-200">
+      <div className="text-gray-800 md:mt-10 dark:text-gray-200">
         <div className="p-2">
           <article className="mb-4">
             <main className="">
-              <div className="text-center mb-10">
+              <div className="text-center mb-10 md:w-72 m-auto">
                 <Img
-                  fixed={data.file.childImageSharp.fixed}
+                  fluid={data.file.childImageSharp.fluid}
                   className="rounded-full m-auto"
                 />
               </div>
-              <div className="w-3/4 mx-auto text-base font-regular font-copy leading-relaxed text-gray-700 prose lg:prose-xl prose-indigo max-w-none dark:prose-dark dark:text-gray-200">
+              <div className="w-full md:w-3/4 mx-auto text-base font-regular font-copy leading-relaxed text-gray-700 prose lg:prose-xl prose-indigo max-w-none dark:prose-dark dark:text-gray-200">
                 <h2 className="text-center">¡Hola!</h2>
                 <p>
                   Soy un desarrollador <strong>Full-stack</strong> y consultor
@@ -56,8 +56,8 @@ export const query = graphql`
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fixed(width: 300, height: 300) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 300, maxHeight: 300) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

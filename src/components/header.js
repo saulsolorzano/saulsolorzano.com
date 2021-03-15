@@ -5,8 +5,8 @@ import DarkMode from "./darkMode";
 
 const Header = ({ siteTitle }) => {
   return (
-    <header className="px-2 md:mx-4 md:px-10 py-2 flex items-center justify-between bg-white dark:bg-dark">
-      <h1 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 leading-tight hover:text-yellow-700">
+    <header className="px-2 md:mx-4 md:px-10 py-2 flex items-end md:items-center justify-between bg-white dark:bg-dark">
+      <h1 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 leading-tight hover:text-yellow-700 pr-6 md:pr-0">
         <Link to="/">
           <span className="bg-bottom bg-no-repeat bg-header bg-header-pattern">
             {siteTitle}

@@ -24,7 +24,7 @@ const DarkMode = () => {
     document.documentElement.classList.remove("dark");
   }
   return (
-    <>
+    <div className="absolute md:relative top-6 right-2 md:top-auto md:right-auto">
       <input
         type="checkbox"
         id="dark-mode-toggle"
@@ -38,7 +38,7 @@ const DarkMode = () => {
         aria-label="Toggle para modo nocturno"
         className="toggle"
       ></label>
-    </>
+    </div>
   );
 };
 export default DarkMode;

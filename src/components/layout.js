@@ -4,7 +4,6 @@ import Footer from "./footer";
 import Header from "./header";
 import "./style.css";
 
-
 const Layout = ({ children }) => {
   return (
     <div className="font-primary pt-2 md:pt-4 dark:bg-dark">
