@@ -9,9 +9,9 @@ const DarkMode = () => {
     setChecked(!checked);
   };
   if (checked === true) {
-    windowGlobal ? (windowGlobal.localStorage.theme = "dark") : "";
+    windowGlobal && (windowGlobal.localStorage.theme = "dark");
   } else {
-    windowGlobal ? (windowGlobal.localStorage.theme = "light") : "";
+    windowGlobal && (windowGlobal.localStorage.theme = "light");
   }
   if (
     (windowGlobal && windowGlobal.localStorage.theme === "dark") ||
@@ -19,13 +19,13 @@ const DarkMode = () => {
       windowGlobal &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
-    windowGlobal ? (windowGlobal.localStorage.theme = "dark") : "";
+    windowGlobal && (windowGlobal.localStorage.theme = "dark");
     windowGlobal && document.documentElement.classList.add("dark");
   } else {
     windowGlobal && document.documentElement.classList.remove("dark");
   }
   return (
-    <div className="absolute md:relative top-6 right-2 md:top-auto md:right-auto">
+    <div className="col-start-1 col-end-3 row-start-1 row-end-2 flex justify-end">
       <input
         type="checkbox"
         id="dark-mode-toggle"
