@@ -8,12 +8,12 @@ description: "A pesar de que un certificado de seguridad no es 100% necesario pa
 type: "post"
 ---
 
-<div class="bg-gray-100 w-10/12 m-auto border series-index">
-	<span class="font-bold m-0 py-1 px-5 block text-blue-700">Desarrollo de temas con Shopify</span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/recomendaciones-trabajo-con-shopify">1. Recomendaciones para trabajar con temas de Shopify</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/instalando-theme-kit">2. Instalando Theme Kit</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/creando-certificado-seguridad-local" class="current">3. Creando certificado de seguridad local</a></span>
-	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold"><a href="/desarrollo-local-shopify-con-themekit-gulp">4. Usando Gulp para desarrollo local con Shopify</a></span>
+<div class="bg-gray-100 w-full md:w-10/12 m-auto border series-index dark:bg-gray-800 dark:border-gray-700">
+	<span class="font-bold m-0 py-1 px-5 block text-blue-700 dark:text-blue-500">Desarrollo de temas con Shopify</span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold dark:border-gray-600"><a href="/recomendaciones-trabajo-con-shopify">1. Recomendaciones para trabajar con temas de Shopify</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold dark:border-gray-600"><a href="/instalando-theme-kit">2. Instalando Theme Kit</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold dark:border-gray-600"><a href="/creando-certificado-seguridad-local" class="current">3. Creando certificado de seguridad local</a></span>
+	<span class="block m-0 py-1 px-5 border-t border-gray-300 font-bold dark:border-gray-600"><a href="/desarrollo-local-shopify-con-themekit-gulp">4. Usando Gulp para desarrollo local con Shopify</a></span>
 </div>
 
 A pesar de que un certificado de seguridad local no es 100% necesario y puedes saltarte este paso si lo deseas, es bastante útil igual esta función, no solo para Theme Kit sino para cualquier otra cosa que necesite un certificado de seguridad local, esta es, por mucho, la manera más cómoda de tener certificados locales.
