@@ -11,15 +11,23 @@ const Footer = () => (
   >
     <p className="text-gray-600 dark:text-gray-200 text-sm">
       &copy; 2014 - {currentYear()} Saúl Solórzano. Potenciado con
-      <a href="https://www.gatsbyjs.com/" className="hover:text-yellow-700 dark:hover:text-dark-light"> Gatsby</a>
+      <a
+        href="https://www.gatsbyjs.com/"
+        className="hover:text-yellow-700 dark:hover:text-dark-light"
+      >
+        {" "}
+        Gatsby
+      </a>
       <br />
       Hospedado en{" "}
       <a
         href="http://www.netlify.com/"
         className="text-gray-600 dark:text-gray-200 hover:text-yellow-700 dark:hover:text-dark-light"
       >
-        Netlify
+        Netlify.
       </a>
+      {"  "} El código se encuentra abierto en{" "}
+      <a href="https://github.com/saulsolorzano/saulsolorzano.com">github.</a>
     </p>
     <nav className="flex space-x-4">
       <a href="http://twitter.com/saulsolorzano">
