@@ -17,6 +17,13 @@ const Footer = () => (
       >
         {" "}
         Gatsby
+      </a>{" "}
+      y{" "}
+      <a
+        href="http://sanity.io/"
+        className="hover:text-yellow-700 dark:hover:text-dark-light"
+      >
+        Sanity.io
       </a>
       <br />
       Hospedado en{" "}
@@ -27,7 +34,12 @@ const Footer = () => (
         Netlify.
       </a>
       {"  "} El código se encuentra abierto en{" "}
-      <a href="https://github.com/saulsolorzano/saulsolorzano.com">github.</a>
+      <a
+        href="https://github.com/saulsolorzano/saulsolorzano.com"
+        className="hover:text-yellow-700 dark:hover:text-dark-light"
+      >
+        Github.
+      </a>
     </p>
     <nav className="flex space-x-4">
       <a href="http://twitter.com/saulsolorzano">

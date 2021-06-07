@@ -1,39 +1,41 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
+import BlockContent from "@sanity/block-content-to-react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { getSingleUrl } from "../lib/helpers";
 
 const IndexPage = ({ data }) => {
-  const { blog } = data;
+  console.log(data.posts);
+  const { posts } = data;
   return (
     <Layout>
       <SEO />
       <div className="text-gray-800 xl:mt-10 dark:text-gray-100">
         <div className="p-2 divide-gray-200 divide-y-2 dark:divide-gray-600">
-          {blog.posts.map((post) => (
+          {posts.edges.map((post) => (
             <article
-              key={post.id}
+              key={post.node.id}
               className="py-6 xl:grid xl:grid-cols-8 xl:items-baseline"
             >
-              {post.frontmatter.published}
               <span className="text-gray-500 text-base block m-0 col-span-2 leading-10 dark:text-gray-200">
-                Escrito el {post.frontmatter.date}
+                Escrito el {post.node.publishedAt}
               </span>
               <div className="col-span-6 space-y-3">
                 <h2 className="text-2xl leading-normal">
-                  {post.frontmatter.externalLink != undefined && (
+                  {post.node.external && (
                     <a
-                      href={post.frontmatter.externalLink}
+                      href={post.node.external_url}
                       target="_blank"
                       rel="noreferrer"
                       className="flex items-center space-x-2"
                     >
-                      <span>{post.frontmatter.title}</span>
+                      {post.node.title}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 text-gray-500"
                         fill="none"
                         viewBox="0 0 24 24"
-                        className="h-4 w-4 text-gray-500"
                         stroke="currentColor"
                       >
                         <path
@@ -45,22 +47,22 @@ const IndexPage = ({ data }) => {
                       </svg>
                     </a>
                   )}
-                  {post.frontmatter.externalLink == undefined && (
+                  {!post.node.external && (
                     <Link
-                      to={post.fields.slug}
+                      to={getSingleUrl(post.node.slug)}
                       className="text-gray-800 hover:text-yellow-700 border-white border-b-2  hover:border-yellow-700 dark:text-gray-200 dark:border-dark dark:hover:text-dark-light dark:hover:border-dark-light"
                     >
-                      {post.frontmatter.title}
+                      {post.node.title}
                     </Link>
                   )}
                 </h2>
                 <div className="prose text-base font-copy text-gray-600 dark:text-gray-200">
-                  <p>{post.frontmatter.description}</p>
+                  <BlockContent blocks={post.node._rawDescription} />
                 </div>
-                {post.frontmatter.externalLink == undefined && (
+                {!post.node.external && (
                   <div>
                     <Link
-                      to={post.fields.slug}
+                      to={post.node.slug.current}
                       className="text-xl border-white border-b-2 dark:border-dark text-yellow-700 hover:border-yellow-700 dark:text-dark-light dark:hover:border-dark-light"
                     >
                       Leer todo →
@@ -78,25 +80,24 @@ const IndexPage = ({ data }) => {
 export default IndexPage;
 
 export const pageQuery = graphql`
-  query MyQuery {
-    blog: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { published: { eq: true } } }
+  query IndexPageQuery {
+    posts: allSanityPost(
+      limit: 6
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
-      posts: nodes {
-        fields {
-          slug
-        }
-        frontmatter {
+      edges {
+        node {
+          id
           title
-          published
-          date(formatString: "D - MM - YYYY")
-          description
-          type
-          externalLink
+          publishedAt(formatString: "D - MM - YYYY")
+          external
+          external_url
+          _rawDescription
+          slug {
+            current
+          }
         }
-        id
-        excerpt
       }
     }
   }
