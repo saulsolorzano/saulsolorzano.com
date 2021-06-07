@@ -7,7 +7,6 @@ import serializers from "../components/Serializers";
 
 export default function BlogPost({ data, pageContext }) {
   const post = data.post;
-  console.log(BasePortableText.h);
   return (
     <Layout>
       <SEO title={post.title} />
@@ -79,7 +78,7 @@ export const query = graphql`
       publishedAt(formatString: "DD MMMM, YYYY", locale: "es")
       _updatedAt(formatString: "DD MMMM, YYYY", locale: "es")
       title
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 100 })
       showUpdatedAt
       slug {
         current

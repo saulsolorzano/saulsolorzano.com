@@ -7,8 +7,8 @@ const serializers = {
   },
   marks: {
     internalLink: ({ mark, children }) => {
-      const { type, slug = {}, url } = mark;
-      const href = url ? url : `/${type}/${slug.current}`;
+      const { slug = {} } = mark.reference;
+      const href = `/${slug.current}`;
       return <a href={href}>{children}</a>;
     },
     externalLink: ({ mark, children }) => {
