@@ -6,7 +6,7 @@ const currentYear = () => {
 
 const Footer = () => (
   <footer
-    className="px-2 md:mx-4 md:px-10 py-6 border-t-2 mt-10 flex items-center justify-between bg-white border-gray-400 dark:bg-dark dark:border-gray-900"
+    className="px-2 md:mx-4 md:px-10 py-6 border-t-2 mt-10 flex items-center justify-between border-gray-400 dark:border-gray-900"
     role="contentinfo"
   >
     <p className="text-gray-600 dark:text-gray-200 text-sm">
@@ -17,6 +17,13 @@ const Footer = () => (
       >
         {" "}
         Gatsby
+      </a>{" "}
+      y{" "}
+      <a
+        href="http://sanity.io/"
+        className="hover:text-yellow-700 dark:hover:text-dark-light"
+      >
+        Sanity.io
       </a>
       <br />
       Hospedado en{" "}
@@ -27,7 +34,12 @@ const Footer = () => (
         Netlify.
       </a>
       {"  "} El código se encuentra abierto en{" "}
-      <a href="https://github.com/saulsolorzano/saulsolorzano.com">github.</a>
+      <a
+        href="https://github.com/saulsolorzano/saulsolorzano.com"
+        className="hover:text-yellow-700 dark:hover:text-dark-light"
+      >
+        Github.
+      </a>
     </p>
     <nav className="flex space-x-4">
       <a href="http://twitter.com/saulsolorzano">
