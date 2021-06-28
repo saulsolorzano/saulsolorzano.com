@@ -1,21 +1,20 @@
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import React from "react";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 
 const AboutPage = ({ data }) => {
   return (
     <Layout>
-      <SEO />
+      <Seo />
       <div className="text-gray-800 md:mt-10 dark:text-gray-200">
         <div className="p-2">
           <article className="mb-4">
             <main className="">
               <div className="text-center mb-10 md:w-72 m-auto">
-                <Img
-                  fluid={data.file.childImageSharp.fluid}
+                <img
+                  src="https://res.cloudinary.com/saulsolorzano/image/upload/v1624916181/blog/saul_sskt5n.jpg"
                   className="rounded-full m-auto"
+                  alt="Saúl Solórzano"
                 />
               </div>
               <div className="w-full md:w-3/4 mx-auto text-base font-regular font-copy leading-relaxed text-gray-700 prose lg:prose-xl prose-indigo max-w-none dark:prose-dark dark:text-gray-200">
@@ -49,17 +48,3 @@ const AboutPage = ({ data }) => {
   );
 };
 export default AboutPage;
-
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "saul.jpg" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fluid(maxWidth: 300, maxHeight: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
