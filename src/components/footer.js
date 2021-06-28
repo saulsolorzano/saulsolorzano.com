@@ -6,7 +6,7 @@ const currentYear = () => {
 
 const Footer = () => (
   <footer
-    className="px-2 md:mx-4 md:px-10 py-6 border-t-2 mt-10 flex items-center justify-between bg-white border-gray-400 dark:bg-dark dark:border-gray-900"
+    className="px-2 md:mx-4 md:px-10 py-6 border-t-2 mt-10 flex items-center justify-between border-gray-400 dark:border-gray-900"
     role="contentinfo"
   >
     <p className="text-gray-600 dark:text-gray-200 text-sm">

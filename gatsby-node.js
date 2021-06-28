@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     {
       allSanityPost(
+        sort: { fields: [publishedAt], order: DESC }
         filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
       ) {
         edges {

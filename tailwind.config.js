@@ -23,7 +23,7 @@ module.exports = {
       gray: colors.blueGray,
       violet: colors.violet,
       yellow: colors.amber,
-      blue: colors.lightBlue,
+      blue: colors.sky,
       dark: {
         light: "#eebbc3",
         border: "#404660",
@@ -39,8 +39,14 @@ module.exports = {
           css: {
             a: {
               color: "#B45309",
+              "text-decoration": "none",
+              "background-image":
+                "linear-gradient(#0135d000 80%,rgba(180, 83, 9, 0.29) 80%)",
+              "background-size": "80% 100%",
+              "background-position": "bottom right",
               "&:hover": {
-                color: "#8B5CF6",
+                "background-image":
+                  "linear-gradient(rgba(180, 83, 9, 0.29) 0%,rgba(180, 83, 9, 0.29) 100%)",
               },
             },
             img: {
@@ -53,6 +59,7 @@ module.exports = {
               a: {
                 color: "#334155",
                 "text-decoration": "none",
+                "background-image": "none",
                 "&:hover": {
                   color: "#0369a1",
                 },
@@ -73,9 +80,16 @@ module.exports = {
               },
             },
             code: {
-              backgroundColor: "#fdf6e3",
+              backgroundColor: "#F59E0B",
               padding: ".1em",
-              "border-radius": ".3em",
+              "border-radius": ".2em",
+              "font-weight": "400",
+              "&:after": {
+                display: "none",
+              },
+              "&:before": {
+                display: "none",
+              },
             },
             pre: {
               "box-shadow": "4px 4px 0 #B45309",
@@ -129,9 +143,7 @@ module.exports = {
               },
             },
             code: {
-              backgroundColor: "#fdf6e3",
-              padding: ".1em",
-              "border-radius": ".3em",
+              backgroundColor: "#C026D3",
             },
             pre: {
               backgroundColor: theme("colors.gray.800"),

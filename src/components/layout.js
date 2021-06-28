@@ -6,9 +6,9 @@ import "./style.css";
 
 const Layout = ({ children }) => {
   return (
-    <div className="font-primary pt-2 md:pt-4 dark:bg-dark">
+    <div className="font-primary pt-2 md:pt-4 bg-blue-50 dark:bg-dark">
       <Header siteTitle="Saúl Solórzano" />
-      <div className="bg-white max-w-5xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 dark:bg-dark">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 2xl:max-w-7xl xl:px-0">
         <main>{children}</main>
       </div>
       <Footer />

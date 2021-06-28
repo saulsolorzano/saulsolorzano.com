@@ -1,14 +1,14 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import { Article } from "../components/Article";
 
 const IndexPage = ({ data }) => {
   const { posts } = data;
   return (
     <Layout>
-      <SEO />
+      <Seo />
       <div className="text-gray-800 xl:mt-10 dark:text-gray-100">
         <div className="p-2 divide-gray-200 divide-y-2 dark:divide-gray-600">
           {posts.edges.map((post) => (
@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
         <div className="mt-10 text-center border-t-4">
           <Link
             to="/todo"
-            className="text-xl text-yellow-700 block py-2 hover:text-white hover:bg-yellow-700 dark:text-dark-light dark:hover:border-dark-light"
+            className="text-xl text-yellow-700 block py-2 hover:text-white hover:bg-yellow-700 dark:hover:bg-dark-light dark:hover:border-dark-light"
           >
             Ver todos los posts
           </Link>

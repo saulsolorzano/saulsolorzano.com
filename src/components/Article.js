@@ -26,7 +26,7 @@ export const Article = ({ post }) => {
           {!post.external && (
             <Link
               to={getSingleUrl(post.slug)}
-              className="text-gray-800 hover:text-yellow-700 border-white border-b-2  hover:border-yellow-700 dark:text-gray-200 dark:border-dark dark:hover:text-dark-light dark:hover:border-dark-light"
+              className="text-gray-800 hover:text-yellow-700 border-blue-50 border-b-2  hover:border-yellow-700 dark:text-gray-200 dark:border-dark dark:hover:text-dark-light dark:hover:border-dark-light"
             >
               {post.title}
             </Link>
@@ -39,7 +39,7 @@ export const Article = ({ post }) => {
           <div>
             <Link
               to={post.slug.current}
-              className="text-xl border-white border-b-2 dark:border-dark text-yellow-700 hover:border-yellow-700 dark:text-dark-light dark:hover:border-dark-light"
+              className="text-xl border-blue-50 border-b-2 dark:border-dark text-yellow-700 hover:border-yellow-700 dark:text-dark-light dark:hover:border-dark-light"
             >
               Leer todo →
             </Link>

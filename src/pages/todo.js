@@ -1,14 +1,14 @@
 import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import { Article } from "../components/Article";
 
 const ArchivePage = ({ data }) => {
   const { posts } = data;
   return (
     <Layout>
-      <SEO />
+      <Seo title="Todos los posts" />
       <div className="text-gray-800 xl:mt-10 dark:text-gray-100">
         <div className="p-2 divide-gray-200 divide-y-2 dark:divide-gray-600">
           {posts.edges.map((post) => (
