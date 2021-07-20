@@ -40,4 +40,60 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
     });
+
+  const CategoryResult = await graphql(`
+    {
+      allSanityCategory {
+        nodes {
+          slug {
+            current
+          }
+          id
+        }
+      }
+    }
+  `);
+  if (CategoryResult.errors) throw CategoryResult.errors;
+  const categoryNodes =
+    (CategoryResult.data.allSanityCategory || {}).nodes || [];
+  categoryNodes.forEach((node) => {
+    const { id, slug = {} } = node;
+    if (!slug) return;
+    const path = `/categoria/${slug.current}/`;
+
+    createPage({
+      path,
+      component: require.resolve(`./src/templates/category.js`),
+      context: {
+        id,
+      },
+    });
+  });
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    SanityCategory: {
+      posts: {
+        type: ["SanityPost"],
+        resolve(source, args, context, info) {
+          return context.nodeModel.runQuery({
+            type: "SanityPost",
+            query: {
+              filter: {
+                categories: {
+                  elemMatch: {
+                    _id: {
+                      eq: source._id,
+                    },
+                  },
+                },
+              },
+            },
+          });
+        },
+      },
+    },
+  };
+  createResolvers(resolvers);
 };

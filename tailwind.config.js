@@ -18,6 +18,9 @@ module.exports = {
       primary: ["halyard-display", "sans-serif"],
       copy: ["ff-tisa-sans-web-pro", "sans-serif"],
     },
+    boxShadow: {
+      DEFAULT: "5px 5px 5px 0px rgba(251, 191, 36, 0.6)",
+    },
     colors: {
       white: colors.white,
       gray: colors.blueGray,
