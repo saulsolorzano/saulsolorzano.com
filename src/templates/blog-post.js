@@ -6,6 +6,7 @@ import BasePortableText from "@sanity/block-content-to-react";
 import serializers from "../components/Serializers";
 import SeriesNav from "../components/SeriesNav";
 import { getSingleUrl } from "../lib/helpers";
+import CategoryLabel from "../components/CategoryLabel";
 
 export default function BlogPost({ data, pageContext }) {
   const post = data.post;
@@ -16,6 +17,11 @@ export default function BlogPost({ data, pageContext }) {
         <div className="p-2">
           <article key={post.id} className="mb-4">
             <header className="border-b-2 text-center mb-4 pb-6 dark:border-dark-border">
+              <div className="flex justify-center space-x-2 mb-2">
+                {post.categories.map((category) => (
+                  <CategoryLabel category={category} key={category.id} />
+                ))}
+              </div>
               <h2 className="text-2xl md:text-4xl mb-0 dark:text-gray-200">
                 <span className="bg-no-repeat bg-header bg-header-pattern">
                   {post.title}
@@ -89,6 +95,13 @@ export const query = graphql`
       seriesTitle
       seriesNav {
         title
+        slug {
+          current
+        }
+      }
+      categories {
+        title
+        id
         slug {
           current
         }

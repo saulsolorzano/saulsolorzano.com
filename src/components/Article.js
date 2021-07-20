@@ -5,6 +5,7 @@ import { getSingleUrl } from "../lib/helpers";
 import ExternalLinkIcon from "./Icons/External";
 
 export const Article = ({ post }) => {
+  console.log({ post });
   return (
     <article className="py-6 xl:grid xl:grid-cols-8 xl:items-baseline">
       <span className="text-gray-500 text-base block m-0 col-span-2 leading-10 dark:text-gray-200">
@@ -38,7 +39,7 @@ export const Article = ({ post }) => {
         {!post.external && (
           <div>
             <Link
-              to={post.slug.current}
+              to={getSingleUrl(post.slug)}
               className="text-xl border-blue-50 border-b-2 dark:border-dark text-yellow-700 hover:border-yellow-700 dark:text-dark-light dark:hover:border-dark-light"
             >
               Leer todo →
